@@ -8,7 +8,7 @@
   <body>
      <div class="container">
         <h5>This web page contains all the homeworks related to the Statistics course of Cybersecurity degree at Sapienza University.</h5>
-        <table class="table custom-table">
+        <table class="table custom-table" style="self-align: center;">
             <thead>
                 <tr>
                     <th>N° Homework</th>
@@ -37,12 +37,7 @@
                         </td></tr>
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
-                            <a href="" style="color: white;"> C# Version </a>
-                          </button>
-                        </td></tr>
-                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
-                          <button type="button" class="btn btn-success">
-                            <a href="" style="color: white;"> VB Version </a>
+                            <a href="https://noemi2001.github.io/statistics/hw2_VB.html" style="color: white;"> VB Version </a>
                           </button>
                         </td></tr>
                       </table>
