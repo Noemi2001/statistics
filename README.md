@@ -29,9 +29,23 @@
                     <td>5 November 2023</td>
                     <td>practical</td>
                     <td>
-                      <button type="button" class="btn btn-success">
-                        <a href="https://noemi2001.github.io/statistics/HW2_JavaScript.html" style="color: white;"> open </a>
-                      </button>
+                      <table class="table custom-table">
+                        <tr><td>
+                          <button type="button" class="btn btn-success">
+                            <a href="https://noemi2001.github.io/statistics/HW2_JavaScript.html" style="color: white;"> JS Version </a>
+                          </button>
+                        </td></tr>
+                        <tr><td>
+                          <button type="button" class="btn btn-success">
+                            <a href="" style="color: white;"> C# Version </a>
+                          </button>
+                        </td></tr>
+                        <tr><td>
+                          <button type="button" class="btn btn-success">
+                            <a href="" style="color: white;"> VB Version </a>
+                          </button>
+                        </td></tr>
+                      </table>
                     </td>
                 </tr>
                 <tr>
