@@ -30,7 +30,7 @@
                     <td>practical</td>
                     <td>
                       <button type="button" class="btn btn-success">
-                        <a href="https://noemi2001.github.io/statistics/HW2_JavaScript.html" > open </a>
+                        <a href="https://noemi2001.github.io/statistics/HW2_JavaScript.html" style="color: white;"> open </a>
                       </button>
                     </td>
                 </tr>
