@@ -7,7 +7,7 @@
   </header>
   <body>
      <div class="container">
-        <h6>This web page contains all the homeworks related to the statistics course of the accademic year 2023/2024.</h6>
+        <h5>This web page contains all the homeworks related to the statistics course of the accademic year 2023/2024.</h5>
         <table class="table custom-table">
             <thead>
                 <tr>
