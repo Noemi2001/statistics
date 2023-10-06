@@ -37,7 +37,7 @@
                         </td></tr>
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
-                            <a href="https://noemi2001.github.io/statistics/hw2_VB.html" style="color: white;"> VB Version </a>
+                            <a href="https://noemi2001.github.io/statistics/pageExtra1.html" style="color: white;"> VB Version </a>
                           </button>
                         </td></tr>
                       </table>
