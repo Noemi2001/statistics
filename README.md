@@ -22,13 +22,13 @@
                     <td> HW 1</td>
                     <td>5 November 2023</td>
                     <td>theoretical</td>
-                    <td>bottone</td>
+                    <td><button type="button" class="btn btn-success">open</button></td>
                 </tr>
                 <tr>
                     <td> HW 2</td>
                     <td>5 November 2023</td>
                     <td>practical</td>
-                    <td>botttone</td>
+                    <td><button type="button" class="btn btn-success">open</button></td>
                 </tr>
                 <tr>
                     <td></td>
