@@ -28,7 +28,11 @@
                     <td> HW 2</td>
                     <td>5 November 2023</td>
                     <td>practical</td>
-                    <td><button type="button" class="btn btn-success">open</button></td>
+                    <td>
+                      <button type="button" class="btn btn-success">
+                        <a href="https://noemi2001.github.io/statistics/HW2_JavaScript.html" > open </a>
+                      </button>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
