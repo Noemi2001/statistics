@@ -30,17 +30,17 @@
                     <td style="vertical-align: middle;">practical</td>
                     <td style="vertical-align: middle;">
                       <table class="table custom-table" style="margin:0; padding:0; border:none;">
-                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0;">
+                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
                             <a href="https://noemi2001.github.io/statistics/HW2_JavaScript.html" style="color: white;"> JS Version </a>
                           </button>
                         </td></tr>
-                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0;">
+                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
                             <a href="" style="color: white;"> C# Version </a>
                           </button>
                         </td></tr>
-                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0;">
+                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
                             <a href="" style="color: white;"> VB Version </a>
                           </button>
