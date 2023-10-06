@@ -7,38 +7,37 @@
   </header>
   <body>
      <div class="container">
-        <h2>This web page contains all the homeworks related to the statistics course of the accademic year 2023/2024.</h2>
+        <h6>This web page contains all the homeworks related to the statistics course of the accademic year 2023/2024.</h6>
         <table class="table custom-table">
             <thead>
                 <tr>
-                    <th>Colonna 1</th>
-                    <th>Colonna 2</th>
-                    <th>Colonna 3</th>
-                    <th>Colonna 4</th>
+                    <th>N° Homework</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>link</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Riga 1, Cella 1</td>
-                    <td>Riga 1, Cella 2</td>
-                    <td>Riga 1, Cella 3</td>
-                    <td>Riga 1, Cella 4</td>
+                    <td> HW 1</td>
+                    <td>5 November 2023</td>
+                    <td>theoretical</td>
+                    <td>bottone</td>
                 </tr>
                 <tr>
-                    <td>Riga 2, Cella 1</td>
-                    <td>Riga 2, Cella 2</td>
-                    <td>Riga 2, Cella 3</td>
-                    <td>Riga 2, Cella 4</td>
+                    <td> HW 2</td>
+                    <td>5 November 2023</td>
+                    <td>practical</td>
+                    <td>botttone</td>
                 </tr>
                 <tr>
-                    <td>Riga 3, Cella 1</td>
-                    <td>Riga 3, Cella 2</td>
-                    <td>Riga 3, Cella 3</td>
-                    <td>Riga 3, Cella 4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
-        <!-- Fine della tabella con Bootstrap -->
     </div>
   </body>
 </html>
