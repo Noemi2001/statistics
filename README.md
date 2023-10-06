@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </header>
   <body>
      <div class="container">
-        <h1>Tabella con Bootstrap</h1>
-        <!-- Inizia la tabella con Bootstrap -->
+        <h2>This web page contains all the homeworks related to the statistics course of the accademic year 2023/2024.</h2>
         <table class="table custom-table">
             <thead>
                 <tr>
