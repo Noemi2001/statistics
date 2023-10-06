@@ -24,23 +24,23 @@
                     <td>theoretical</td>
                     <td><button type="button" class="btn btn-success">open</button></td>
                 </tr>
-                <tr style="vertical-align: middle;">
-                    <td> HW 2</td>
-                    <td>5 November 2023</td>
-                    <td>practical</td>
-                    <td>
-                      <table class="table custom-table">
-                        <tr><td>
+                <tr>
+                    <td style="vertical-align: middle;"> HW 2</td>
+                    <td style="vertical-align: middle;">5 November 2023</td>
+                    <td style="vertical-align: middle;">practical</td>
+                    <td style="vertical-align: middle;">
+                      <table class="table custom-table" style="margin:0; padding:0;">
+                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0;">
                           <button type="button" class="btn btn-success">
                             <a href="https://noemi2001.github.io/statistics/HW2_JavaScript.html" style="color: white;"> JS Version </a>
                           </button>
                         </td></tr>
-                        <tr><td>
+                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0;">
                           <button type="button" class="btn btn-success">
                             <a href="" style="color: white;"> C# Version </a>
                           </button>
                         </td></tr>
-                        <tr><td>
+                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0;">
                           <button type="button" class="btn btn-success">
                             <a href="" style="color: white;"> VB Version </a>
                           </button>
