@@ -1,4 +1,4 @@
-# statistics
+# Statistics A.A.2023/24
 <html>
   <header>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   </header>
   <body>
      <div class="container">
-        <h5>This web page contains all the homeworks related to the statistics course of the accademic year 2023/2024.</h5>
+        <h5>This web page contains all the homeworks related to the Statistics course of Cybersecurity degree at Sapienza University.</h5>
         <table class="table custom-table">
             <thead>
                 <tr>
