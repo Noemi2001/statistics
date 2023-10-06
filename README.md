@@ -24,7 +24,7 @@
                     <td>theoretical</td>
                     <td><button type="button" class="btn btn-success">open</button></td>
                 </tr>
-                <tr>
+                <tr style="vertical-align: middle;">
                     <td> HW 2</td>
                     <td>5 November 2023</td>
                     <td>practical</td>
