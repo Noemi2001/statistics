@@ -25,7 +25,7 @@
                     <td><button type="button" class="btn btn-success">open</button></td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: middle;"> HW 2</td>
+                    <td style="vertical-align: middle;"> HW 1</td>
                     <td style="vertical-align: middle;">5 November 2023</td>
                     <td style="vertical-align: middle;">practical</td>
                     <td style="vertical-align: middle;">
