@@ -1,0 +1,32 @@
+C:\Users\utente\Desktop\statistics\practical hw\hm2\bin\Debug\net6.0-windows\hm2.exe
+C:\Users\utente\Desktop\statistics\practical hw\hm2\bin\Debug\net6.0-windows\hm2.deps.json
+C:\Users\utente\Desktop\statistics\practical hw\hm2\bin\Debug\net6.0-windows\hm2.runtimeconfig.json
+C:\Users\utente\Desktop\statistics\practical hw\hm2\bin\Debug\net6.0-windows\hm2.dll
+C:\Users\utente\Desktop\statistics\practical hw\hm2\bin\Debug\net6.0-windows\hm2.pdb
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.Form1.resources
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.vbproj.GenerateResource.cache
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.AssemblyInfoInputs.cache
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.AssemblyInfo.vb
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.vbproj.CoreCompileInputs.cache
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.dll
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\refint\hm2.dll
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.pdb
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\hm2.genruntimeconfig.cache
+C:\Users\utente\Desktop\statistics\practical hw\hm2\obj\Debug\net6.0-windows\ref\hm2.dll
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\bin\Debug\net6.0-windows\hm2.exe
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\bin\Debug\net6.0-windows\hm2.deps.json
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\bin\Debug\net6.0-windows\hm2.runtimeconfig.json
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\bin\Debug\net6.0-windows\hm2.dll
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\bin\Debug\net6.0-windows\hm2.pdb
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.Form1.resources
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.vbproj.GenerateResource.cache
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.AssemblyInfoInputs.cache
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.AssemblyInfo.vb
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.vbproj.CoreCompileInputs.cache
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.dll
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\refint\hm2.dll
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.pdb
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\hm2.genruntimeconfig.cache
+C:\Users\utente\Desktop\statistics\practical hw\HM2- Visual Basics\obj\Debug\net6.0-windows\ref\hm2.dll
