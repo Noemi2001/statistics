@@ -13,7 +13,7 @@
                 <tr>
                     <th>N° Homework</th>
                     <th>Date</th>
-                    <th>Type</th>
+                    <th>Part</th>
                     <th>link</th>
                 </tr>
             </thead>
