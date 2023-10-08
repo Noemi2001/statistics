@@ -32,7 +32,7 @@
                       <table class="table custom-table" style="margin:0; padding:0; border:none;">
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
-                            <a href="https://noemi2001.github.io/statistics/HW2_JavaScript.html" style="color: white;"> JS Version </a>
+                            <a href="https://noemi2001.github.io/statistics/HW1_JavaScript.html" style="color: white;"> JS Version </a>
                           </button>
                         </td></tr>
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
