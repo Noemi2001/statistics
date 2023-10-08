@@ -22,7 +22,9 @@
                     <td> HW 1</td>
                     <td>5 November 2023</td>
                     <td>theoretical</td>
-                    <td><button type="button" class="btn btn-success">open</button></td>
+                    <td><button type="button" class="btn btn-success">
+                      <a href="https://github.com/Noemi2001/statistics/blob/main/HW1-teory.pdf" style="color: white;">Read</a>
+                    </button></td>
                 </tr>
                 <tr>
                     <td style="vertical-align: middle;"> HW 1</td>
