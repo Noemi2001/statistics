@@ -14,9 +14,11 @@
             const lines = data.split('\n');
             const result = [];
             const headers = lines[0].split(',');
-            console.log(headers)
+            
+            joinLines = 0;
 
             const columnData = {};
+            const distribuzioneCongiunta = {};
 
             headers.forEach(header => {
             columnData[header] = {};
@@ -24,6 +26,8 @@
 
             for (let i = 1; i < lines.length; i++) {
                 const currentLine = lines[i].split(',');
+                const age = currentLine[headers.indexOf("Age")];
+                const sport = currentLine[headers.indexOf("Sports")];
 
                 for (let j = 0; j < headers.length; j++) {
                     const header = headers[j];
@@ -37,16 +41,22 @@
                         }
                     }
                 }
+
+                if (age && sport && age!='-' && sport!='-') {
+                    const chiave = `${age}-${sport}`;
+                    if (distribuzioneCongiunta[chiave]) {
+                        distribuzioneCongiunta[chiave] += 1;
+                    } else {
+                        distribuzioneCongiunta[chiave] = 1;
+                    }
+                    joinLines += 1;
+                }
             }
 
             var tableAge = document.getElementById("tableAge");
-            var keyNumberAge = Object.keys(columnData["Age"]).length;
-
             var tableSport = document.getElementById("tableSport");
-            var keyNumberSport = Object.keys(columnData["Sports"]).length;
-
             var tableHeight = document.getElementById("tableHeight");
-            var keyNumberHeight = Object.keys(columnData["Height\r"]).length;
+            var tableJoin = document.getElementById("tableJOIN");
 
             for (var chiave in columnData["Age"]) {
                 if (columnData["Age"].hasOwnProperty(chiave)) {
@@ -55,11 +65,12 @@
                     var absoluteFrequenceCell = riga.insertCell(1);
                     var relativeFrequenceCell = riga.insertCell(2);
                     var percentageFrequenceCell = riga.insertCell(3);
+                    
 
                     cellaChiave.innerHTML = chiave;
                     absoluteFrequenceCell.innerHTML = columnData["Age"][chiave];
-                    relativeFrequenceCell.innerHTML = columnData["Age"][chiave] / keyNumberAge;
-                    percentageFrequenceCell.innerHTML = (columnData["Age"][chiave] / keyNumberAge)*100;
+                    relativeFrequenceCell.innerHTML = (columnData["Age"][chiave] / lines.length).toFixed(5);
+                    percentageFrequenceCell.innerHTML = ((columnData["Age"][chiave] / lines.length)*100).toFixed(5);
                 }
             }
 
@@ -73,8 +84,8 @@
 
                     cellaChiave.innerHTML = chiave;
                     absoluteFrequenceCell.innerHTML = columnData["Height\r"][chiave];
-                    relativeFrequenceCell.innerHTML = columnData["Height\r"][chiave] / keyNumberHeight;
-                    percentageFrequenceCell.innerHTML = (columnData["Height\r"][chiave] / keyNumberHeight)*100;
+                    relativeFrequenceCell.innerHTML = (columnData["Height\r"][chiave] / lines.length).toFixed(5);
+                    percentageFrequenceCell.innerHTML = ((columnData["Height\r"][chiave] / lines.length)*100).toFixed(5);
                 }
             }
 
@@ -88,12 +99,28 @@
 
                     cellaChiave.innerHTML = chiave;
                     absoluteFrequenceCell.innerHTML = columnData["Sports"][chiave];
-                    relativeFrequenceCell.innerHTML = columnData["Sports"][chiave] / keyNumberSport;
-                    percentageFrequenceCell.innerHTML = (columnData["Sports"][chiave] / keyNumberSport)*100;
+                    relativeFrequenceCell.innerHTML = (columnData["Sports"][chiave] / lines.length).toFixed(5);
+                    percentageFrequenceCell.innerHTML = ((columnData["Sports"][chiave] / lines.length)*100).toFixed(5);
+                }
+            }
+
+            for (var chiave in distribuzioneCongiunta) {
+                if (distribuzioneCongiunta.hasOwnProperty(chiave)) {
+                    var riga = tableJoin.insertRow(tableJoin.rows.length);
+                    var cellaChiave = riga.insertCell(0);
+                    var absoluteFrequenceCell = riga.insertCell(1);
+                    var relativeFrequenceCell = riga.insertCell(2);
+                    var percentageFrequenceCell = riga.insertCell(3);
+
+                    cellaChiave.innerHTML = chiave;
+                    absoluteFrequenceCell.innerHTML = distribuzioneCongiunta[chiave];
+                    relativeFrequenceCell.innerHTML = (distribuzioneCongiunta[chiave] / joinLines).toFixed(5);
+                    percentageFrequenceCell.innerHTML = ((distribuzioneCongiunta[chiave] / joinLines) * 100).toFixed(5);
                 }
             }
 
             console.log(columnData);
+            console.log(distribuzioneCongiunta);
         })
         .catch(error => console.error('Errore durante il recupero del file CSV:', error));
     </script>
@@ -110,7 +137,7 @@
         <h3>Variable: Age -> quantitative discrete</h3>
         <table class="table table-bordered table-striped center-table" id="tableAge" style="max-width: 60vw; text-align: right;">
             <tr>
-                <th scope="col" style="text-align: center;"> Value </th>
+                <th scope="col" style="text-align: center;"> Age (years) </th>
                 <th scope="col" style="text-align: center;"> Absolute frequence </th>
                 <th scope="col" style="text-align: center;"> Relative frequence </th>
                 <th scope="col" style="text-align: center;"> Percentage frequence </th>
@@ -121,7 +148,7 @@
         <h3>Variable: height -> quantitative continous</h3>
         <table class="table table-bordered table-striped center-table" id="tableHeight" style="max-width: 60vw; text-align: right;">
             <tr>
-                <th scope="col" style="text-align: center;"> Value </th>
+                <th scope="col" style="text-align: center;"> Height (cm) </th>
                 <th scope="col" style="text-align: center;"> Absolute frequence </th>
                 <th scope="col" style="text-align: center;"> Relative frequence </th>
                 <th scope="col" style="text-align: center;"> Percentage frequence </th>
@@ -132,7 +159,18 @@
         <h3>Variable: sport -> qualitative </h3>
         <table class="table table-bordered table-striped center-table" id="tableSport" style="max-width: 60vw; text-align: right;">
             <tr>
-                <th scope="col" style="text-align: center;"> Value </th>
+                <th scope="col" style="text-align: center;"> Sport </th>
+                <th scope="col" style="text-align: center;"> Absolute frequence </th>
+                <th scope="col" style="text-align: center;"> Relative frequence </th>
+                <th scope="col" style="text-align: center;"> Percentage frequence </th>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <h3>JOIN DISTRIBUTION: sport and age </h3>
+        <table class="table table-bordered table-striped center-table" id="tableJOIN" style="max-width: 60vw; text-align: right;">
+            <tr>
+                <th scope="col" style="text-align: center;"> Age - Sport </th>
                 <th scope="col" style="text-align: center;"> Absolute frequence </th>
                 <th scope="col" style="text-align: center;"> Relative frequence </th>
                 <th scope="col" style="text-align: center;"> Percentage frequence </th>
@@ -143,6 +181,7 @@
         <button type="button" class="btn btn-success" style="text-align: center;">
             <a href="https://github.com/Noemi2001/statistics/blob/main/HW2/HM2.html" style="color: white;"> View Code </a>
         </button>
+        <br>
         <br>
     </div>
 </body>
