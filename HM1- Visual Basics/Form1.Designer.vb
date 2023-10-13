@@ -82,7 +82,7 @@ Partial Class Form1
         ' 
         PictureBox1.Location = New Point(135, 127)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(584, 290)
+        PictureBox1.Size = New Size(700, 300)
         PictureBox1.TabIndex = 6
         PictureBox1.TabStop = False
         ' 
