@@ -1,6 +1,6 @@
 Public Class Form1
     Dim bmp As New Bitmap(800, 350)
-    Dim xOffset As Integer = 20 ' Imposta una distanza iniziale orizzontale tra gli elementi
+    Dim xOffset As Integer = 20
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim g As Graphics = Graphics.FromImage(bmp)
@@ -19,7 +19,7 @@ Public Class Form1
         g.Dispose()
 
         PictureBox1.Image = bmp
-        xOffset += larghezza + 20 ' Incrementa xOffset per separare le linee
+        xOffset += larghezza + 20 
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -34,7 +34,7 @@ Public Class Form1
         g.Dispose()
 
         PictureBox1.Image = bmp
-        xOffset += 2 * (radius + 20) ' Incrementa xOffset per separare i cerchi
+        xOffset += 2 * (radius + 20) 
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -65,7 +65,7 @@ Public Class Form1
         g.Dispose()
 
         PictureBox1.Image = bmp
-        xOffset += 2 * (radius + 20) ' Incrementa xOffset per separare i cerchi pieni
+        xOffset += 2 * (radius + 20)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
