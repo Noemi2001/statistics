@@ -13,7 +13,7 @@
           <a href="" style="color: white;"> C# CheatSheet </a>
         </button>
         <button type="button" class="btn btn-primary">
-          <a href="" style="color: white;"> JS CheatSheet </a>
+          <a href="https://noemi2001.github.io/statistics/cheatsheetJS.html" style="color: white;"> JS CheatSheet </a>
         </button>
         <br>
         <table class="table custom-table" style="self-align: center;">
