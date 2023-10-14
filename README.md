@@ -9,10 +9,10 @@
      <div class="container">
         <h5>This web page contains all the homeworks related to the Statistics course of Cybersecurity degree at Sapienza University.</h5>
         <br>
-        <button type="button" class="btn">
+        <button type="button" class="btn btn-primary">
           <a href="" style="color: white;"> C# CheatSheet </a>
         </button>
-        <button type="button" class="btn">
+        <button type="button" class="btn btn-primary">
           <a href="" style="color: white;"> JS CheatSheet </a>
         </button>
         <br>
