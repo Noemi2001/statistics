@@ -10,7 +10,7 @@
         <h5>This web page contains all the homeworks related to the Statistics course of Cybersecurity degree at Sapienza University.</h5>
         <br>
         <button type="button" class="btn btn-primary">
-          <a href="https://noemi2001.github.io/statistics/cheatsheetC#.html" style="color: white;"> C# CheatSheet </a>
+          <a href="https://noemi2001.github.io/statistics/cheatsheetC.html" style="color: white;"> C# CheatSheet </a>
         </button>
         <button type="button" class="btn btn-primary">
           <a href="https://noemi2001.github.io/statistics/cheatsheetJS.html" style="color: white;"> JS CheatSheet </a>
