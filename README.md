@@ -61,7 +61,7 @@
                       <table class="table custom-table" style="margin:0; padding:0; border:none;">
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
-                            <a href="https://noemi2001.github.io/statistics/HW2/HM2.html" style="color: white;"> JS Version </a>
+                            <a href="https://noemi2001.github.io/statistics/HW2/HW2.1_JS.html" style="color: white;"> JS Version </a>
                           </button>
                         </td></tr>
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
@@ -80,7 +80,7 @@
                       <table class="table custom-table" style="margin:0; padding:0; border:none;">
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
-                            <a href="" style="color: white;"> JS Version </a>
+                            <a href="https://noemi2001.github.io/statistics/HW2/HW2.3_JS.html" style="color: white;"> JS Version </a>
                           </button>
                         </td></tr>
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
