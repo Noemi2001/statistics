@@ -8,6 +8,14 @@
   <body>
      <div class="container">
         <h5>This web page contains all the homeworks related to the Statistics course of Cybersecurity degree at Sapienza University.</h5>
+        <br>
+        <button type="button" class="btn">
+          <a href="" style="color: white;"> C# CheatSheet </a>
+        </button>
+        <button type="button" class="btn">
+          <a href="" style="color: white;"> JS CheatSheet </a>
+        </button>
+        <br>
         <table class="table custom-table" style="self-align: center;">
             <thead>
                 <tr>
@@ -46,7 +54,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: middle;"> HW 2</td>
+                    <td style="vertical-align: middle;"> HW 2.1 </td>
                     <td style="vertical-align: middle;">12 October 2023</td>
                     <td style="vertical-align: middle;">practical</td>
                     <td style="vertical-align: middle;">
@@ -58,7 +66,26 @@
                         </td></tr>
                         <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
                           <button type="button" class="btn btn-success">
-                            <a href="" style="color: white;"> VB Version </a>
+                            <a href="" style="color: white;"> C# Version </a>
+                          </button>
+                        </td></tr>
+                      </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle;"> HW 2.3 </td>
+                    <td style="vertical-align: middle;">12 October 2023</td>
+                    <td style="vertical-align: middle;">practical</td>
+                    <td style="vertical-align: middle;">
+                      <table class="table custom-table" style="margin:0; padding:0; border:none;">
+                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
+                          <button type="button" class="btn btn-success">
+                            <a href="" style="color: white;"> JS Version </a>
+                          </button>
+                        </td></tr>
+                        <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
+                          <button type="button" class="btn btn-success">
+                            <a href="" style="color: white;"> C# Version </a>
                           </button>
                         </td></tr>
                       </table>
