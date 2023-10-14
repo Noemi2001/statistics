@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Code Example</title>
+   <style>
+      pre {
+         background-color: #f0f0f0;
+         padding: 10px;
+         border: 1px solid #ccc;
+         overflow-x: auto;
+      }
+   </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Cheetsheet JavaScript</h1>
+    <h3 style="margin-left: 5vw;">ARRAY</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+        <code>
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+
+        // ARRAY
+        int[] array;
+        int[] numbers = { 1, 2, 3, 4, 5 };
+        int[] numbers = new int[5]; // Creates an array of 5 integers with default values (0).
+
+        numbers[2] = 10; // Modifies the third element to be 10.
+
+        for (int i = 0; i < numbers.Length; i++){  } //loop
+        
+        </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">LIST</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+        <code>
+        List<int> list = new List<int> { 1, 2, 3, 4, 5 };
+        
+        foreach (int item in myList){        } //loop
+        
+        myList.Add(value); // add a new element
+        int firstItem = myList[0];  // Retrieves the first item 
+        myList.Remove(value); // Removes the item with a specific value
+        
+        void SetListValue(List<int> list, int index, int newValue)
+        {
+            if (index >= 0 && index < list.Count)
+                list[index] = newValue;
+        }
+        </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">DICTIONARY</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+        <code>
+        Dictionary<string, string> dictionary = new Dictionary<string, string>
+        {
+            { "key1", "value1" },
+            { "key2", "value2" },
+            { "key3", "value3" }
+        };
+        
+        List<string> keys = dictionary.Keys.ToList(); // extracts all the keys
+        List<string> values = dictionary.Values.ToList(); // extracts all the values
+        List<KeyValuePair<string, string>> pairs = dictionary.ToList(); // extracts all the key-value pairs
+        
+        foreach (var pair in dictionary) // loop
+        {
+            string key = pair.Key;
+            string value = pair.Value;
+        }
+        
+        dictionary["newKey"] = "newValue"; // To add key-value pairs
+        dictionary.Remove("key2"); // Removes 'key2' and its associated value
+        bool valueExists = dictionary.TryGetValue("key2", out string value); // Retrieves 'value2'
+        
+        bool keyExists = dictionary.ContainsKey("key2"); // Check if 'key2' exists in the dictionary
+        
+        void SetValueDictionary(Dictionary<string, string> dict, string key, string newValue)
+        {
+            if (dict.ContainsKey(key))
+                dict[key] = newValue;
+        }
+        </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">SORTED LIST</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+        <code>
+        SortedList my_slist = new SortedList();
+
+        list.Remove(oldValue); //remove a specific value
+        my_slist.RemoveAt(2);  // Remove element at index 2
+        list.Add(newValue); //add a specific value
+        list.Contains(Value) //check if a specific value exists in the sortedlist
+        
+        foreach (int item in sortedList){} //loop
+        
+        void SetSortedListValue(SortedList<int> list, int oldValue, int newValue) //set a value
+        {
+            if (list.Contains(oldValue))
+            {
+                list.Remove(oldValue);
+                list.Add(newValue);
+            }
+        }
+        </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">HASHSET</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+        <code>     
+        HashSet<int> hashSet = new HashSet<int>();
+
+        hashset.Add(value) //add a specific value
+        hashset.Remove(value); // remove element with a specific value
+        hashset.Contains(value); //can check if an element exists
+        
+        foreach (int number in numbers) {        } //loop
+        
+        void SetHashSetValue(HashSet<int> set, int oldValue, int newValue) //set
+        {
+            if (set.Contains(oldValue))
+            {
+                set.Remove(oldValue);
+                set.Add(newValue);
+            }
+        }
+        </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">SORTED SET</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+        <code>  
+        SortedSet<int> sortedSet = new SortedSet<int>();
+
+        sortedSet.Add(value) //add a specific value
+        sortedSet.Remove(value); // remove element with a specific value
+        sortedSet.Clear(); // remove all elements
+        
+        void SetSortedSetValue(SortedSet<int> set, int oldValue, int newValue) //set a new value
+        {
+            if (set.Contains(oldValue))
+            {
+                set.Remove(oldValue);
+                set.Add(newValue);
+            }
+        }
+        </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">QUEUE</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+    <code>  
+        Queue<int> queue = new Queue<int>();
+
+        myQueue.Enqueue(item); //add an item to the end of the queue
+        item = myQueue.Dequeue(); // remove and return the item at the front of the queue
+        frontItem = myQueue.Peek(); //get the item at the front of the queue
+        myQueue.Clear(); // clear all items from the queue
+        
+        foreach (T item in myQueue){ } // loop
+        
+        
+        void SetQueueValue(Queue<int> q, int oldValue, int newValue) // set a new value
+        {
+            int[] items = q.ToArray();
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i] == oldValue)
+                {
+                    items[i] = newValue;
+                    q.Clear();
+                    foreach (var item in items)
+                        q.Enqueue(item);
+                    break;
+                }
+            }
+        }
+    </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">STACK</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+        <code>  
+        Stack<int> stack = new Stack<int>();
+
+        stack.Push(value); //add elements to the stack
+        int element = stack.Pop(); //remove and retrieve the top element from the stack
+        int topElement = stack.Peek(); // get the top element without removing it
+        stack.Clear(); //  remove all elements from the stack
+        
+        foreach (int item in numberStack){ } //loop
+        
+        void SetStackValue(Stack<int> s, int oldValue, int newValue) // set a new element
+        {
+            int[] items = s.ToArray();
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i] == oldValue)
+                {
+                    items[i] = newValue;
+                    s.Clear();
+                    foreach (var item in items)
+                        s.Push(item);
+                    break;
+                }
+            }
+        }
+        </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">LINKED LIST</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+        <code>  
+        LinkedList<int> linkedList = new LinkedList<int>();
+
+        linkedList.AddLast(value); //add element at the end of linked list
+        linkedList.AddFirst(value); //add element at the begin of linked list
+        LinkedListNode<int> newNode = linkedList.AddAfter(node, value); // insert the value after the node
+        
+        linkedList.RemoveLast(); //remove element at the end of linked list
+        linkedList.RemoveFirst(); //remove element at the begin of linked list
+        linkedList.Remove(value); //remove a specific element
+        
+        bool containsValue = linkedList.Contains(value); //check if an element is in the list
+        
+        foreach (int value in linkedList){ } //loop
+        
+        void SetLinkedListValue(LinkedList<int> list, int oldValue, int newValue) //set a new value
+        {
+            var currentNode = list.First;
+            while (currentNode != null)
+            {
+                if (currentNode.Value == oldValue)
+                {
+                    currentNode.Value = newValue;
+                    break;
+                }
+                currentNode = currentNode.Next;
+            }
+        }    
+        </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Code Example</title>
+   <style>
+      pre {
+         background-color: #f0f0f0;
+         padding: 10px;
+         border: 1px solid #ccc;
+         overflow-x: auto;
+      }
+   </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Cheetsheet JavaScript</h1>
+  <h3 style="margin-left: 5vw;">ARRAY or LIST</h3>
+  <pre style="margin-left: 5vw; margin-right: 5vw;">
+    <code>
+    const array = [1, 2, 3, 4, 5];
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === 3) {
+            break; // Exit the loop
+        }
+        if (array[i] === 2) {
+            continue; // Skip the current iteration
+        }
+        // Use array[i] to access the current element
+    }
+
+    const element = array[1]; // Accesses the element at index 1 (which is 2)
+
+    const exists = array.includes(3); // true -> Checks if an array includes a specific element.
+    const index = array.indexOf(4); // 3 -> Finds the index of the first occurrence of a specific element in the array. If not found, it returns -1.
+
+    const removedElement = array.pop(); // Removes and returns 5
+    const removedElement2 = array.shift(); // Removes and returns 1
+    array.splice(1, 2); // Removes 2 elements starting from index 1
+
+    array.push(6); // Adds 6 to the end of the array
+    array.unshift(0); // Adds 0 to the beginning of the array
+
+    function setArrayValue(array, index, newValue) { //modify an element with a new value
+        if (index >= 0 && index < array.length) {
+            array[index] = newValue;
+        }
+    }
+    </code>
+  </pre>
+  <br>
+  <h3 style="margin-left: 5vw;">DICTIONARY</h3>
+  <pre style="margin-left: 5vw; margin-right: 5vw;">
+    <code>
+    const dictionary = { key1: 'value1', key2: 'value2', key3: 'value3' };
+
+    const keys = Object.keys(dictionary); // extracts all the key
+    const values = Object.values(dictionary); // extracts all the values
+    const pairs = Object.entries(dictionary); // extracts all the key-value pairs
+
+    for (const key in dictionary) { //loop
+        const value = dictionary[key];
+    }
+
+    dictionary['newKey'] = 'newValue'; // To add key-value pairs
+    delete dictionary.key2; // Removes 'key2' and its associated value
+    const value = dictionary['key2']; // Retrieves 'value2'
+
+    if (dictionary.hasOwnProperty('key2')) {
+        // 'key2' exists in the dictionary
+    }
+
+    if ('key2' in dictionary) {
+        // 'key2' exists in the dictionary
+    }
+
+    function setValueDictionary(dictionary, key, newValue) { //modify an element with a new value
+    dictionary[key] = newValue;
+    }
+
+    </code>
+  </pre>
+  <br>
+  <h3 style="margin-left: 5vw;">SORTED LIST</h3>
+  <pre style="margin-left: 5vw; margin-right: 5vw;">
+    <code>
+    class SortedList {
+    constructor() {
+        this.items = [];
+    }
+
+    insert(item) {  // Insert an element into the sorted list while maintaining the order.
+        const index = this.findInsertIndex(item);
+        this.items.splice(index, 0, item);
+    }
+    
+    findInsertIndex(item) { // Find the index where the item should be inserted to maintain the sorted order.
+        let index = 0;
+        while (index < this.items.length && item > this.items[index]) {
+        index++;
+        }
+        return index;
+    }
+
+    remove(item) { // Remove an item from the sorted list.
+        const index = this.items.indexOf(item);
+        if (index !== -1) {
+        this.items.splice(index, 1);
+        }
+    }
+
+    elementExists(sortedList, target) { // Check if an element exists in the sorted list.
+        for (const item of sortedList.items) {
+        if (item === target) {
+            return true;
+        }
+        }
+        return false;
+    }
+
+    isEmpty() {
+        return this.items.length === 0; // Check if the sorted list is empty.
+    }
+
+    forEach(callback) { //loop
+        for (const item of this.items) {
+        callback(item);
+        }
+    }
+
+    setValue(oldValue, newValue) {
+        this.remove(oldValue);
+        this.insert(newValue);
+    }
+    }
+    </code>
+  </pre>
+  <br>
+  <h3 style="margin-left: 5vw;">HASHSET</h3>
+  <pre style="margin-left: 5vw; margin-right: 5vw;">
+    <code>     
+    class HashSet {
+        constructor() {
+          this.values = new Map();
+        }
+
+        add(value) { // add new element in the hashset
+          this.values.set(value, true);
+        }
+
+        delete(value) { // remove an element from the hashset
+          this.values.delete(value);
+        }
+
+        exist(value) { // Check if a specific value is in the hashset 
+          if(this.values.has(value) != null){
+            return true
+          }
+          return false
+        }
+
+        getValue(value) { // return a specific value is in the hashset.
+          tmp = this.values.has(value);
+          if(tmp != null){
+            return tmp
+          }
+          return null
+        }
+
+        forEach(callback) { 
+          for (const value of this.values.keys()) { //loop
+            callback(value);
+          }
+        }
+
+        setValue(oldValue, newValue) {
+          if (this.exists(oldValue)) {
+            this.delete(oldValue);
+            this.add(newValue);
+          }
+        }
+    }
+    </code>
+  </pre>
+  <br>
+  <h3 style="margin-left: 5vw;">SORTED SET</h3>
+  <pre style="margin-left: 5vw; margin-right: 5vw;">
+    <code>  
+      class SortedSet {
+        constructor() {
+          this.data = [];
+        }
+
+        add(value) { // Add a value to the sorted set while maintaining the order.
+          if (!this.has(value)) {
+            this.data.push(value);
+            this.data.sort((a, b) => a - b); // Sort the array in ascending order.
+          }
+        }
+
+        delete(value) { // Remove a value from the sorted set.
+          const index = this.data.indexOf(value);
+          if (index !== -1) {
+            this.data.splice(index, 1);
+          }
+        }
+
+        exist(value) { // Check if a value is in the sorted set.
+          if (this.data.includes(value)){
+            return true;
+          }
+          return false;
+        }
+
+        getValue(value){ // return a value if exist in the sorted set.
+          tmp = this.data.includes(value)
+          if (tmp != null){
+            return tmp;
+          }
+          return null;
+        }
+
+        forEach(callback) { //loop
+          for (const value of this.data) {
+            callback(value);
+          }
+        }
+
+        setValue(oldValue, newValue) {
+          this.delete(oldValue);
+          this.add(newValue);
+        }
+      }
+      </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">QUEUE</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+      <code>  
+      class Queue {
+        constructor() {
+          this.items = [];
+        }
+      
+        add(item) { // add an item to the end of the queue.
+          this.items.push(item);
+        }
+      
+        remove() { // remove and return an item from the front of the queue.
+          if (this.isEmpty()) {
+            return null;
+          }
+          return this.items.shift();
+        }
+      
+        get() {// Peek at the item at the front of the queue without removing it.
+          if (this.isEmpty()) {
+            return null;
+          }
+          return this items[0];
+        }
+      
+        isEmpty() { // Check if the queue is empty.
+          return this.items.length === 0;
+        }
+      
+        forEach(callback) { //loop
+          for (const item of this.items) {
+            callback(item);
+          }
+        }
+      
+        setValue(oldValue, newValue) {
+          const index = this.items.indexOf(oldValue);
+          if (index !== -1) {
+            this.items.splice(index, 1); // Remove the old value
+            this add(newValue); // Add the new value
+          }
+        }
+      }
+      </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">STACK</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+      <code>  
+      class Stack {
+        constructor() {
+          this.items = [];
+        }
+      
+        push(element) { // add an element onto the stack
+          this.items.push(element);
+        }
+      
+        pop() { // remove an element from the stack and return it
+          if (!this.isEmpty()) {
+            return this.items.pop();
+          }
+        }
+      
+        get() { // Peek at the top element without removing it
+          if (!this.isEmpty()) {
+            return this.items[this.items.length - 1];
+          }
+        }
+      
+        isEmpty() { // Check if the stack is empty
+          return this.items.length === 0;
+        }
+      
+        forEach(callback) { //loop
+          for (const element of this.items) {
+            callback(element);
+          }
+        }
+      
+        setValue(oldValue, newValue) {
+          if (this.isEmpty()) {
+            return;
+          }
+          const index = this.items.lastIndexOf(oldValue);
+          if (index !== -1) {
+            this.items.splice(index, 1); // Remove the old value
+            this.push(newValue); // Push the new value
+          }
+        }
+      }
+      </code>
+    </pre>
+    <br>
+    <h3 style="margin-left: 5vw;">LINKED LIST</h3>
+    <pre style="margin-left: 5vw; margin-right: 5vw;">
+      <code>  
+      class Node {
+        constructor(data) {
+          this.data = data;
+          this.next = null;
+        }
+      }
+      
+      class LinkedList {
+        constructor() {
+          this.head = null;
+        }
+      
+        append(data) { //insert a new element at the end of the linked list
+          const newNode = new Node(data);
+          if (!this.head) {
+            this.head = newNode;
+          } else {
+            let current = this.head;
+            while (current.next) {
+              current = current.next;
+            }
+            current.next = newNode;
+          }
+        }
+      
+        add(data) { // Add a new element to the beginning of the list.
+          const newNode = new Node(data);
+          newNode.next = this.head;
+          this.head = newNode;
+        }
+      
+        delete(data) { // Delete the first occurrence of a node with the given data.
+          if (!this.head) {
+            return;
+          }
+      
+          if (this.head.data === data) {
+            this.head = this.head.next;
+            return;
+          }
+      
+          let current = this.head;
+          while (current.next) {
+            if (current.next.data === data) {
+              current.next = current.next.next;
+              return;
+            }
+            current = current.next;
+          }
+        }
+      
+        exist(data) { // Check if the linked list contains the specified data element.
+          let current = this.head;
+          while (current) {
+            if (current.data === data) {
+              return true;
+            }
+            current = current.next;
+          }
+          return false;
+        }
+      
+        get(data) { // Return the first occurrence of the specified data element in the linked list.
+          let current = this.head;
+          while (current) {
+            if (current.data === data) {
+              return current.data;
+            }
+            current = current.next;
+          }
+          return null;
+        }
+      
+        forEach(callback) { //loop
+          let current = this.head;
+          while (current) {
+            callback(current.data);
+            current = current.next;
+          }
+        }
+      
+        setValue(oldValue, newValue) {
+          let current = this.head;
+          while (current) {
+            if (current.data === oldValue) {
+              current.data = newValue; // Update the value
+              break;
+            }
+            current = current.next;
+          }
+        }
+      }
+  </code>
+  </pre>
+</body>
+</html>
