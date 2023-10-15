@@ -12,6 +12,9 @@
                 var data = [];
                 var counter = new Array(k).fill(0);
 
+                var table = document.getElementById("counterTable").getElementsByTagName('tbody')[0];
+                table.innerHTML = "";
+
                 for (var c = 0; c < N; c++) {
                     const randomNumber = Math.random();
                     data.push(randomNumber);
