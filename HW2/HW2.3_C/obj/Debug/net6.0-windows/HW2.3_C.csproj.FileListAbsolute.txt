@@ -1,0 +1,16 @@
+C:\Users\utente\Desktop\HW2.3_C\bin\Debug\net6.0-windows\HW2.3_C.exe
+C:\Users\utente\Desktop\HW2.3_C\bin\Debug\net6.0-windows\HW2.3_C.deps.json
+C:\Users\utente\Desktop\HW2.3_C\bin\Debug\net6.0-windows\HW2.3_C.runtimeconfig.json
+C:\Users\utente\Desktop\HW2.3_C\bin\Debug\net6.0-windows\HW2.3_C.dll
+C:\Users\utente\Desktop\HW2.3_C\bin\Debug\net6.0-windows\HW2.3_C.pdb
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2._3_C.Form1.resources
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2.3_C.csproj.GenerateResource.cache
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2.3_C.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2.3_C.AssemblyInfoInputs.cache
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2.3_C.AssemblyInfo.cs
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2.3_C.csproj.CoreCompileInputs.cache
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2.3_C.dll
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\refint\HW2.3_C.dll
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2.3_C.pdb
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\HW2.3_C.genruntimeconfig.cache
+C:\Users\utente\Desktop\HW2.3_C\obj\Debug\net6.0-windows\ref\HW2.3_C.dll
