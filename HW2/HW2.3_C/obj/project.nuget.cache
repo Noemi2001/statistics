@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5U6Qgo+/U9BpUhFH16zdbWA1Q9Z+K9nR4uEqwYKFRSySHNYR6m1gSVqYkGT+qo+HIOTmWN3yLE9TIw7qCju0sQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\utente\\Desktop\\MAGISTRALE\\statistics\\practical hw\\HW2\\HW2.3_C\\HW2_3C_bis.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\utente\\.nuget\\packages\\winforms.datavisualization\\1.9.0\\winforms.datavisualization.1.9.0.nupkg.sha512"
+  ],
+  "logs": []
+}
