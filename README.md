@@ -103,6 +103,25 @@
                       </table>
                     </td>
                 </tr>
+                <tr>
+                  <td style="vertical-align: middle;"> HW 3 </td>
+                  <td style="vertical-align: middle;">19 October 2023</td>
+                  <td style="vertical-align: middle;">practical</td>
+                  <td style="vertical-align: middle;">
+                    <table class="table custom-table" style="margin:0; padding:0; border:none;">
+                      <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
+                        <button type="button" class="btn btn-success">
+                          <a href="https://noemi2001.github.io/statistics/HW3/HW3_JS.html" style="color: white;"> JS Version </a>
+                        </button>
+                      </td></tr>
+                      <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
+                        <button type="button" class="btn btn-success">
+                          <a href="https://noemi2001.github.io/statistics/pageExtra4.html" style="color: white;"> C# Version </a>
+                        </button>
+                      </td></tr>
+                    </table>
+                  </td>
+                </tr>
             </tbody>
         </table>
     </div>
