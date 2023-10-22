@@ -1,4 +1,6 @@
+using System.Globalization;
 using System.Net;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsApp1
 {
@@ -19,6 +21,15 @@ namespace WinFormsApp1
                 var lines = csvData.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
                 var result = new List<string[]>();
                 var headers = lines[0].Split(',');
+
+                Dictionary<string, int> heightIntervals = new Dictionary<string, int>
+                {
+                    { "1.50-1.59", 0 },
+                    { "1.60-1.69", 0 },
+                    { "1.70-1.79", 0 },
+                    { "1.80-1.89", 0 },
+                    { "1.90-1.99", 0 },
+                };
 
                 var joinLines = 0;
 
@@ -69,10 +80,31 @@ namespace WinFormsApp1
                     }
                 }
 
-                DisplayData(columnData, distribuzioneCongiunta, joinLines);
+                foreach (var tmp in columnData["Height"])
+                {
+                    float height = float.Parse(tmp.Key);
+                    int c = tmp.Value;
+
+                    foreach (var entry in heightIntervals)
+                    {
+                        string interval = entry.Key;
+                        float min = float.Parse(interval.Split('-')[0]);
+                        float max = float.Parse(interval.Split('-')[1]);
+
+                        if (height >= min && height <= max)
+                        {
+                            heightIntervals[interval] += c;
+
+                        }
+                        
+                    }
+
+                }
+
+                DisplayData(columnData, distribuzioneCongiunta, joinLines, heightIntervals);
             }
         }
-        private void DisplayData(Dictionary<string, Dictionary<string, int>> columnData, Dictionary<string, int> distribuzioneCongiunta, int joinLines)
+        private void DisplayData(Dictionary<string, Dictionary<string, int>> columnData, Dictionary<string, int> distribuzioneCongiunta, int joinLines, Dictionary<string, int> heightIntervals)
         {
 
             dataGridViewAge.Rows.Clear();
@@ -94,7 +126,7 @@ namespace WinFormsApp1
             dataGridViewHeight.Columns.Add("RelativeFrequency", "Relative Frequency");
             dataGridViewHeight.Columns.Add("PercentageFrequency", "Percentage Frequency");
 
-            foreach (var item in columnData["Height"])
+            foreach (var item in heightIntervals)
             {
                 dataGridViewHeight.Rows.Add(item.Key, item.Value, (double)item.Value / joinLines, ((double)item.Value / joinLines) * 100);
             }
