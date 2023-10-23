@@ -23,7 +23,7 @@
                     <td> HW 1</td>
                     <td>5 October 2023</td>
                     <td>theoretical</td>
-                    <td><button type="button" class="btn btn-success">
+                    <td><button type="button" class="btn btn-warning">
                       <a href="https://noemi2001.github.io/statistics/HM1_theory.html" style="color: white;">Read</a>
                     </button></td>
                 </tr>
@@ -126,7 +126,7 @@
                   <td> HW 3</td>
                   <td>19 October 2023</td>
                   <td>theoretical</td>
-                  <td><button type="button" class="btn btn-success">
+                  <td><button type="button" class="btn btn-warning">
                     <a href="https://noemi2001.github.io/statistics/HW3/HW3_Theory.html" style="color: white;">Read</a>
                   </button></td>
                 </tr>
