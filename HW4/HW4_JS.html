@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<head>
+    <title> HW 4 JavaScript </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+        let numVariables = 0;
+        let subdivisions = [];
+        var numberElements = 0;
+
+        function generateInputFields() {
+            numVariables = parseInt(document.getElementById('numberVariables').value);
+
+            if (isNaN(numVariables) || numVariables < 0) {
+                alert('Please enter a valid number of variables.');
+                return;
+            }
+
+            subdivisions = new Array(numVariables).fill(0);
+
+            const inputFieldsDiv = document.getElementById('inputFields');
+            inputFieldsDiv.innerHTML = '';
+
+            for (let i = 0; i < numVariables; i++) {
+                if (i % 5 === 0) {
+                    const row = document.createElement('div');
+                    row.className = 'row';
+                    inputFieldsDiv.appendChild(row);
+                }
+
+                const col = document.createElement('div');
+                col.className = 'col-md';
+                
+                const formGroup = document.createElement('div');
+                formGroup.className = 'form-group text-center';
+
+                const label = document.createElement('label');
+                label.textContent = `Number of Variable ${i + 1} Subdivisions:`;
+
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.className = 'form-control custom-input';
+                input.id= ""+i;
+                input.min = 1;
+                input.value = subdivisions[i];
+                input.addEventListener('input', (event) => {
+                    subdivisions[i] = parseInt(event.target.value);
+                });
+
+                formGroup.appendChild(label);
+                formGroup.appendChild(input);
+                col.appendChild(formGroup);
+
+                const lastRow = inputFieldsDiv.lastChild;
+                if (lastRow) {
+                    lastRow.appendChild(col);
+                }
+
+                const button = document.createElement('button');
+               
+            }
+        }
+
+        function generateRandomData() {
+            numVariables = parseInt(document.getElementById('numberVariables').value);
+            numberElements = parseInt(document.getElementById('numberElements').value);
+
+            var data = [];
+            var intervals = [];
+
+            var dataWithIntervals = [];
+
+            for(var i = 0; i < numVariables; i++){
+                var tmp = [];
+                var tmpWithIntervals = [];
+                var numIntervals = parseInt(document.getElementById(""+i).value);
+
+                for (var c = 0; c < numberElements; c++) {
+                    const randomNumber = Math.random().toFixed(2);
+                    tmp.push(randomNumber);
+                }
+
+                var max = (Math.max(...tmp));
+                var min = (Math.min(...tmp));
+
+                var dimension = ((max-min)/numIntervals);
+
+                for (var c = 0; c < numberElements; c++) {
+                    for (var j = min; j < max; j=(j+dimension)) {
+                        var start = j;
+                        var end = start + dimension;
+                        if (tmp[c] >= start && tmp[c] < end) {
+                            tmpWithIntervals.push(start +"-"+ end);
+                        }
+
+                        if(end == max && tmp[c]==end){
+                            tmpWithIntervals.push(start +"-"+ end);
+                        }
+                    }
+                }
+
+                intervals.push(numIntervals);
+                data.push(tmp);
+                dataWithIntervals.push(tmpWithIntervals);
+            }
+            joinDistribution(dataWithIntervals);              
+        }
+
+        function joinDistribution(dataWithIntervals){     
+
+            var jointDistribution = {};
+
+            var output = [];
+            Combinations(dataWithIntervals, 0, "", jointDistribution);
+            console.log(jointDistribution);
+
+            for(var r=0; r<dataWithIntervals[0].length; r++){
+                var key = "";
+                for(var v=0; v<dataWithIntervals.length; v++){
+                    key += dataWithIntervals[v][r] +"<br>";
+                }
+                jointDistribution[key]+=1;
+            }
+
+            var tableJoin = document.getElementById("tableJOIN");
+
+            for (var i = (tableJoin.rows.length - 1); i > 0; i--) { 
+                tableJoin.deleteRow(i);
+            }
+
+            for (var chiave in jointDistribution) {
+                if (jointDistribution.hasOwnProperty(chiave)) {
+                    var riga = tableJoin.insertRow(tableJoin.rows.length);
+                    var cellaChiave = riga.insertCell(0);
+                    var absoluteFrequenceCell = riga.insertCell(1);
+                    var relativeFrequenceCell = riga.insertCell(2);
+                    var percentageFrequenceCell = riga.insertCell(3);
+                    
+
+                    cellaChiave.innerHTML = chiave;
+                    absoluteFrequenceCell.innerHTML = jointDistribution[chiave];
+                    relativeFrequenceCell.innerHTML = (jointDistribution[chiave] / numberElements).toFixed(5);
+                    percentageFrequenceCell.innerHTML = ((jointDistribution[chiave] / numberElements)*100).toFixed(2);
+                }
+            }
+        }
+
+        function Combinations(arrays, index, currentCombination, result) {    
+            if (index === arrays.length) {
+                result[currentCombination] = 0;
+                return;
+            }
+            for (var i = 0; i < arrays[index].length; i++) {
+                var newCombination = currentCombination+ arrays[index][i]+"<br>";                
+                Combinations(arrays, index + 1, newCombination, result);
+            }
+        }
+
+        ////////////////////////////// PT2 //////////////////////////////////
+
+        const counter = {};
+        const counterH = {};
+        const counterS = {};
+        var lines = 0;
+
+        function frequencyCalculation(){
+            
+            const csvUrl = 'https://noemi2001.github.io/statistics/HW2/dataset.csv';
+            var numIntervals = parseInt(document.getElementById('numberIntervalsQantitativeDescrete').value);
+            var numIntervalsH = parseInt(document.getElementById('numberIntervalsQantitativeContinous').value);
+            
+            fetch(csvUrl)
+            .then(response => response.text())
+            .then(data => {
+                
+                lines = data.split('\n');
+                const ages = [];
+                const heights = [];
+                const sports = [];
+                const headers = lines[0].split(',');
+                
+
+                for (let i = 1; i < lines.length; i++) {
+                    const currentLine = lines[i].split(',');
+                    const age = currentLine[headers.indexOf("Age")];
+                    const h = currentLine[headers.indexOf("Height\r")];
+                    const s = currentLine[headers.indexOf("Sports")];
+                    ages.push(age);
+                    heights.push(h);
+                    sports.push(s);
+                }
+
+                var max = (Math.max(...ages));
+                var min = (Math.min(...ages));
+                var maxH = (Math.max(...heights));
+                var minH = (Math.min(...heights));
+
+                var dimension = ((max-min)/numIntervals);
+                var dimensionH = ((maxH-minH)/numIntervalsH);
+
+                for (var j = min; j < max; j=(j+dimension)) {
+                    var start = j;
+                    var end = start + dimension;
+                    counter[start+"-"+end]=0;
+                }
+
+                for (var j = minH; j < maxH; j=(j+dimensionH)) {
+                    var start = j;
+                    var end = start + dimensionH;
+                    start = start.toFixed(2);
+                    end = end.toFixed(2);
+                    counterH[start+"-"+end]=0;
+                }
+
+                for (var c = 0; c < ages.length; c++) {
+                    for (var j = min; j < max; j=(j+dimension)) {
+                        var start = j;
+                        var end = start + dimension;
+                        if (ages[c] >= start && ages[c] < end) {
+                            counter[start+"-"+end]+=1;
+                        }
+                        if(end == max && ages[c]==end){
+                            counter[start+"-"+end]+=1;
+                        }
+                    }
+                }
+
+                for (var c = 0; c < heights.length; c++) {
+                    for (var j = minH; j < maxH; j=(j+dimensionH)) {
+                        var start = j;
+                        var end = start + dimensionH;
+                        start = start.toFixed(2);
+                        end = end.toFixed(2);
+                        if (heights[c] >= start && heights[c] < end) {
+                            counterH[start+"-"+end]+=1;
+                        }
+                        if(end == maxH && heights[c]==end){
+                            counterH[start+"-"+end]+=1;
+                        }
+                    }
+                }
+
+                for (var c = 0; c < sports.length; c++) {
+                    if(counterS[sports[c]]==null){
+                        counterS[sports[c]] = 1;
+                    }else{
+                        counterS[sports[c]] += 1;
+                    }
+                }
+
+                var tableAge = document.getElementById("tableAge");
+                for (var i = (tableAge.rows.length - 1); i > 0; i--) { 
+                    tableAge.deleteRow(i);
+                }
+
+                var tableHeight = document.getElementById("tableHeight");
+                for (var i = (tableHeight.rows.length - 1); i > 0; i--) { 
+                    tableHeight.deleteRow(i);
+                }
+
+                var tableSport = document.getElementById("tableSport");
+                for (var i = (tableSport.rows.length - 1); i > 0; i--) { 
+                    tableSport.deleteRow(i);
+                }
+
+                for (var chiave in counter) {
+                    if (counter.hasOwnProperty(chiave)) {
+                        var riga = tableAge.insertRow(tableAge.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = counter[chiave];
+                        relativeFrequenceCell.innerHTML = (counter[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((counter[chiave] / lines.length)*100).toFixed(2);
+                   }
+                }
+
+                for (var chiave in counterH) {
+                    if (counterH.hasOwnProperty(chiave)) {
+                        var riga = tableHeight.insertRow(tableHeight.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = counterH[chiave];
+                        relativeFrequenceCell.innerHTML = (counterH[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((counterH[chiave] / lines.length)*100).toFixed(2);
+                   }
+                }
+
+                for (var chiave in counterS) {
+                    if (counterS.hasOwnProperty(chiave)) {
+                        var riga = tableSport.insertRow(tableSport.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = counterS[chiave];
+                        relativeFrequenceCell.innerHTML = (counterS[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((counterS[chiave] / lines.length)*100).toFixed(2);
+                   }
+                }
+                
+            })
+            .catch(error => console.error('Errore durante il recupero del file CSV:', error));
+        }
+
+        function alphabetical(input){
+            
+            const keys = Object.keys(input);
+            keys.sort();
+            console.log(keys)
+            const output = {};
+
+            for (const k of keys) {
+                output[k] = input[k];
+            }
+
+            if (input == counterS){
+                var tableSport = document.getElementById("tableSport");
+                for (var i = (tableSport.rows.length - 1); i > 0; i--) { 
+                    tableSport.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableSport.insertRow(tableSport.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+
+            if(input == counterH){
+                var tableHeight = document.getElementById("tableHeight");
+                for (var i = (tableHeight.rows.length - 1); i > 0; i--) { 
+                    tableHeight.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableHeight.insertRow(tableHeight.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+
+            if(input == counter){
+                var tableAge = document.getElementById("tableAge");
+                for (var i = (tableAge.rows.length - 1); i > 0; i--) { 
+                    tableAge.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableAge.insertRow(tableAge.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+        }
+
+        function ascending(input){
+            const sortedEntries = Object.entries(input).sort((a, b) => a[1] - b[1]);
+            const output = Object.fromEntries(sortedEntries);
+            
+            if(input == counterS){
+                var tableSport = document.getElementById("tableSport");
+                for (var i = (tableSport.rows.length - 1); i > 0; i--) { 
+                    tableSport.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableSport.insertRow(tableSport.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+
+            if(input == counterH){
+                var tableHeight = document.getElementById("tableHeight");
+                for (var i = (tableHeight.rows.length - 1); i > 0; i--) { 
+                    tableHeight.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableHeight.insertRow(tableHeight.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+
+            if(input == counter){
+                var tableAge = document.getElementById("tableAge");
+                for (var i = (tableAge.rows.length - 1); i > 0; i--) { 
+                    tableAge.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableAge.insertRow(tableAge.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+            
+        }
+
+        function descending(input){
+            const sortedEntries = Object.entries(input).sort((a, b) => b[1] - a[1]);
+            const output = Object.fromEntries(sortedEntries);
+            
+            if(input == counterS){
+                var tableSport = document.getElementById("tableSport");
+                for (var i = (tableSport.rows.length - 1); i > 0; i--) { 
+                    tableSport.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableSport.insertRow(tableSport.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+
+            if(input == counterH){
+                var tableHeight = document.getElementById("tableHeight");
+                for (var i = (tableHeight.rows.length - 1); i > 0; i--) { 
+                    tableHeight.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableHeight.insertRow(tableHeight.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+
+            if(input == counter){
+                var tableAge = document.getElementById("tableAge");
+                for (var i = (tableAge.rows.length - 1); i > 0; i--) { 
+                    tableAge.deleteRow(i);
+                }
+
+                for (var chiave in output) {
+                    if (output.hasOwnProperty(chiave)) {
+                        var riga = tableAge.insertRow(tableAge.rows.length);
+                        var cellaChiave = riga.insertCell(0);
+                        var absoluteFrequenceCell = riga.insertCell(1);
+                        var relativeFrequenceCell = riga.insertCell(2);
+                        var percentageFrequenceCell = riga.insertCell(3);
+                        
+
+                        cellaChiave.innerHTML = chiave;
+                        absoluteFrequenceCell.innerHTML = output[chiave];
+                        relativeFrequenceCell.innerHTML = (output[chiave] / lines.length).toFixed(5);
+                        percentageFrequenceCell.innerHTML = ((output[chiave] / lines.length)*100).toFixed(2);
+                    }
+                }
+            }
+        }
+    
+    </script>
+    <style>
+        .center-table {
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="text-align: center; background-color: white; width:93vw; margin-top: 20px;">
+        <br>
+        <h1> Homework 4 </h1>
+        <br>
+        <h6 style="text-align: justify;">Part 1: Compute the joint distribution of any number of 2,3, ...k, continuous quantitative variables
+            where, for each variable, the user can specify the number of subdivision of a range containing the observed values.</h6>
+        <br>
+        <form name="f1">
+            <div class="mb-3">
+                <label for="numberVariables" class="form-label">Number of continuous variables:</label>
+                <input type="number" class="form-control" id="numberVariables" name="numberVariables" step="1" min="2" max="10" oninput="generateInputFields()" style="max-width: 200px; margin: 0 auto;">
+            </div>
+            <div class="mb-3">
+                <label for="numberElements" class="form-label">Number of values of each variable:</label>
+                <input type="number" class="form-control" id="numberElements" name="numberElements" step="1" min="2" max="100" style="max-width: 200px; margin: 0 auto;">
+            </div>
+            <br>
+            <div id="inputFields"></div>
+            <br>
+            <button type="button" class="btn btn-success" style="text-align: center;" onclick="generateRandomData()"> Send data </button>
+        </form>
+        <br>
+        <h3>JOIN DISTRIBUTION</h3>
+        <table class="table table-bordered table-striped center-table" id="tableJOIN" style="max-width: 60vw; text-align: right;">
+            <tr>
+                <th scope="col" style="text-align: center;"> first variable intervall <br> second variable intervall <br>...</th>
+                <th scope="col" style="text-align: center;"> Absolute frequence </th>
+                <th scope="col" style="text-align: center;"> Relative frequence </th>
+                <th scope="col" style="text-align: center;"> Percentage frequence </th>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <button type="button" class="btn btn-success" style="text-align: center;">
+            <a href="" style="color: white;"> View Code </a>
+        </button>
+        <br>
+        <br>
+    </div>
+    <div class="container" style="text-align: center; background-color: white; width:93vw; margin-top: 20px;">
+        <br>
+        <h6 style="text-align: justify;">Part 2: Revise also your previous homework taking into account that qualitative variables can be ordered and therefore the order needs to be preserved. For quantitative variables, include the possibility to specify class intervals too..</h6>
+        <br>
+        <form name="f2">
+            <div class="mb-3" style="display: flex; justify-content: space-between; max-width: 420px; margin: 0 auto;">
+                <div>
+                    <label for="numberIntervalsQantitativeDescrete" class="form-label">Number of intervals for descrete variables:</label>
+                    <input type="number" class="form-control" id="numberIntervalsQantitativeDescrete" name="numberIntervalsQantitativeDescrete" step="1" min="1" max="100" value="1" style="max-width: 200px; margin: 0 auto;">
+                </div>
+                <div>
+                    <label for="numberIntervalsQantitativeContinous" class="form-label">Number of intervals for continuous variables:</label>
+                    <input type="number" class="form-control" id="numberIntervalsQantitativeContinous" name="numberIntervalsQantitativeContinous" step="1" min="1" max="100" value="1" style="max-width: 200px; margin: 0 auto;">
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" style="text-align: center;" onclick="frequencyCalculation()"> Send data </button>
+        </form>
+        <br>
+        <h3>Variable: Age -> quantitative discrete</h3>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="alphabetical(counter)"> key alphabetical order </button>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="ascending(counter)"> frequency ascending order </button>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="descending(counter)"> frequency descending order </button>
+        <br>
+        <br>
+        <table class="table table-bordered table-striped center-table" id="tableAge" style="max-width: 60vw; text-align: right;">
+            <tr>
+                <th scope="col" style="text-align: center;"> Age (years) </th>
+                <th scope="col" style="text-align: center;"> Absolute frequence </th>
+                <th scope="col" style="text-align: center;"> Relative frequence </th>
+                <th scope="col" style="text-align: center;"> Percentage frequence </th>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <h3>Variable: height -> quantitative continous</h3>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="alphabetical(counterH)"> key alphabetical order </button>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="ascending(counterH)"> frequency ascending order </button>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="descending(counterH)"> frequency descending order </button> 
+        <br>
+        <br>       
+        <table class="table table-bordered table-striped center-table" id="tableHeight" style="max-width: 60vw; text-align: right;">
+            <tr>
+                <th scope="col" style="text-align: center;"> Height (cm) </th>
+                <th scope="col" style="text-align: center;"> Absolute frequence </th>
+                <th scope="col" style="text-align: center;"> Relative frequence </th>
+                <th scope="col" style="text-align: center;"> Percentage frequence </th>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <h3>Variable: sport -> qualitative </h3>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="alphabetical(counterS)"> key alphabetical order </button>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="ascending(counterS)"> frequency ascending order </button>
+        <button type="button" class="btn btn-info" style="text-align: center;" onclick="descending(counterS)"> frequency descending order </button>
+        <br>
+        <br>
+        <table class="table table-bordered table-striped center-table" id="tableSport" style="max-width: 60vw; text-align: right;">
+            <tr>
+                <th scope="col" style="text-align: center;"> Sport </th>
+                <th scope="col" style="text-align: center;"> Absolute frequence </th>
+                <th scope="col" style="text-align: center;"> Relative frequence </th>
+                <th scope="col" style="text-align: center;"> Percentage frequence </th>
+            </tr>
+        </table>
+        <br>
+        <br>
+    </div>
+</body>
