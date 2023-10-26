@@ -130,6 +130,33 @@
                     <a href="https://noemi2001.github.io/statistics/HW3/HW3_Theory.html" style="color: white;">Read</a>
                   </button></td>
                 </tr>
+                <tr>
+                  <td style="vertical-align: middle;"> HW 4 </td>
+                  <td style="vertical-align: middle;">26 October 2023</td>
+                  <td style="vertical-align: middle;">practical</td>
+                  <td style="vertical-align: middle;">
+                    <table class="table custom-table" style="margin:0; padding:0; border:none;">
+                      <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
+                        <button type="button" class="btn btn-success">
+                          <a href="https://noemi2001.github.io/statistics/HW4/HW4_JS.html" style="color: white;"> JS Version </a>
+                        </button>
+                      </td></tr>
+                      <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
+                        <button type="button" class="btn btn-success">
+                          <a href="https://noemi2001.github.io/statistics/pageExtra5.html" style="color: white;"> C# Version </a>
+                        </button>
+                      </td></tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td> HW 4</td>
+                  <td>26 October 2023</td>
+                  <td>theoretical</td>
+                  <td><button type="button" class="btn btn-warning">
+                    <a href="https://noemi2001.github.io/statistics/HW4/HW4_Theory.html" style="color: white;">Read</a>
+                  </button></td>
+                </tr>
             </tbody>
         </table>
     </div>
