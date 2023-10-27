@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> HW 1 - Theory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: Georgia;
+            margin: 60px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: justify;
+        }
+
+        .question {
+            text-decoration: underline;
+            font-size: 20px
+        }
+
+        .answer {
+            margin-left: 20px;
+        }
+
+        .bibliography {
+            margin-top: 30px;
+        }
+
+        figure {
+            text-align: center; 
+            margin-right: 20px;
+        }
+
+        img {
+            max-width: 350px; 
+            height: auto;
+        }
+
+        .image-grid {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+  </head>
+  <body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="background-color: white;">
+    <br>
+      <h1>Thesis 1 - 2</h1>
+      <div class="section">
+            <h4>LLN - Law of Large Numbers</h4>
+            <p class="answer">
+                <strong>The law of large numbers (LLN) </strong> is a fundamental theorem in probability and statistics that describes the behaviour of sample averages as the sample size increases. It states that if you repeat an experiment independently a large number of times and average the result, what you obtain should be close to the expected value. It means that as the sample size grows larger, the sample average it’s similar to the true population mean. 
+                <div class="image-grid">
+                    <figure>
+                        <img src="LLN1.png" alt="Descrizione dell'immagine">
+                    </figure>
+                    <figure>
+                        <img src="LLN2.gif" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+                There are two main versions of the law of large numbers:
+                <br>
+                <ol>
+                    <li> 
+                        <strong>Weak Law of Large Numbers (WLLN) </strong>: it states that as the sample size increases, the sample mean converges in probability to the population mean. So, the theorem says:
+                        <br>Let X1, X2, ... , Xn be independent and identically distributed random variables with a finite expected value E Xi = μ<∞. Then, for any ε >0, \(\lim_{n \to \infty} P(|\bar{x}_n - \mu| \geq \varepsilon) = 0\).
+                        <br>This means that for any positive ε, the probability that the absolute difference between the sample mean and the population mean is greater than ε approaches zero as the sample size becomes larger.
+                        <br>
+                        <br>
+                        <div class="question"> Proof </div>
+                        <p class="answer">
+                            We start by defining the sample mean:
+                                \(\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n}X_i\)
+
+                            where \(X_1, X_2, \ldots, X_n\) are independent and identically distributed random variables.
+
+                            We want to show that as \(n\) approaches infinity, \(\bar{X}_n\) converges to the population mean \(\mu\) in probability.
+
+                            To prove this, we can use Chebyshev's inequality, which states:
+
+                            \begin{equation}
+                                P(|\bar{X}_n - \mu| \geq \epsilon) \leq \frac{\sigma^2}{n\epsilon^2}
+                            \end{equation}
+
+                            where \(\epsilon > 0\) and \(\sigma^2\) is the population variance.
+
+                            Using Chebyshev's inequality, we can show that as \(n\) increases, the probability of \(\bar{X}_n\) being far from \(\mu\) decreases:
+
+                            \begin{equation}
+                                \lim_{n \to \infty} P(|\bar{X}_n - \mu| \geq \epsilon) = 0
+                            \end{equation}
+
+                            This demonstrates the convergence of \(\bar{X}_n\) to \(\mu\) in probability, which proves the Weak Law of Large Numbers.
+                        </p>
+                    </li>
+                    <br>
+                    <li>
+                        <strong>Strong Law of Large Numbers (SLLN)</strong>: it states that the sample mean converges almost surely to the population mean. In mathematical terms, for the same sequence of random variables, the sample mean converges almost surely to μ as the sample size increases. So, the theorem says:
+                        <br>Let X1, X2, ... , Xn be independent and identically distributed random variables with a finite expected value E Xi = μ<∞. Then, for any ε >0, \(P\left(\lim_{{n \to \infty}} ( \bar{x}_n = \mu )\right) = 1\).
+                        <br>This means that with probability 1, the sample mean converges to the population mean as the sample size goes to infinity.
+                        <br>
+                        <br>
+                        <div class="question">Proof</div>
+                        <p class="answer">
+                            We start by defining the sample mean:
+                                \(\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n}X_i\)
+
+                            where \(X_1, X_2, \ldots, X_n\) are independent and identically distributed random variables.
+
+                            To prove the SLLN, we can use Kolmogorov's Strong Law of Large Numbers, which states:
+
+                            \begin{equation}
+                                P\left(\lim_{n \to \infty}\frac{1}{n}\sum_{i=1}^{n}(X_i - \mu) = 0\right) = 1
+                            \end{equation}
+
+                            where \(\mu\) is the population mean.
+
+                            This result implies that the sample mean \(\bar{X}_n\) converges to \(\mu\) with probability 1 as \(n\) goes to infinity. In other words, almost surely, the sample mean equals the population mean.
+
+                        </p>                       
+                    </li>
+                </ol>
+                <div class="question">Example 1: </div>
+                A single roll of a fair, six-sided die produces one of the numbers 1, 2, 3, 4, 5, or 6, each with probability equal to 1/6. Therefore, the expected value of the average of the rolls is (1+2+3+4+5+6)/6=3.5 .
+                According to the law of large numbers, if a large number of six-sided dice are rolled, the average of their values will approach 3.5, with the precision increasing as more dice are rolled.
+                <br>
+                <br>
+                <div class="question">Example 2: </div>
+                As a result of the implementation of homework 3, we can observe:
+                <div class="image-grid">
+                    <figure>
+                        <img src="LL3.png" alt="Descrizione dell'immagine">
+                        <figcaption>N=100, M=50, P=0.5</figcaption>
+                    </figure>
+                </div>
+                With a large number of attacks a systems we can observe that the most part of the curves converges at the value of the mean. So, the distribution follows the law of the large numbers.
+            </p>
+      </div>
+      <div class="section">
+        <h4>CLT - Central Limit Theorem</h4>
+            <p class="answer">
+                The central limit theorem (CLT) states that if you have a population with mean μ and standard deviation σ and take sufficiently large random samples from the population with replacement , then the distribution of the sample means will be approximately normally distributed.
+                So, in other words, this theorem establishes that, in many situations, for independent and identically distributed random variables, the sampling distribution of the standardized sample mean tends towards the standard normal distribution even if the original variables themselves are not normally distributed. 
+                <br>Theorem: Let X1, X2, ..., Xn  denote a random sample of n independent observations from a population with overall expected value (average) μ  and finite variance σ^2, and let \( \bar{x}_n\)  denote the sample mean of that sample. Then \(\lim_{{n \to \infty}} \frac{{\bar{x}_n - \mu}}{{\sigma_{\bar{x}_n}}}\) , where \(\sigma_{\bar{x}_n} = \frac{\sigma}{\sqrt{n}}\) , is the standard normal distribution.
+                <div class="image-grid">
+                    <figure>
+                        <img src="CLT1.png" alt="Descrizione dell'immagine">
+                    </figure>
+                    <figure>
+                        <img src="CLT2.png" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+                <br>
+                <div class="question">Proof</div>
+                <p class="answer">
+                    We start by defining the sample mean:
+                        \(\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n}X_i\)
+
+                    where \(X_1, X_2, \ldots, X_n\) are independent and identically distributed random variables with mean \(\mu\) and finite variance \(\sigma^2\).
+
+                    The CLT can be outlined as follows:
+
+                        <br>Standardize the sample mean:
+                        
+                        Define the standardized variable \(Z_n\) as: \(Z_n = \frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}}\)
+
+                        <br>Show that as \(n\) goes to infinity, the distribution of \(Z_n\) approaches a standard normal distribution (\(N(0,1)\)):
+
+                        \begin{equation}
+                            \lim_{n \to \infty} P(Z_n \leq z) = \Phi(z)
+                        \end{equation}
+
+                        where \(\Phi(z)\) is the cumulative distribution function of the standard normal distribution.
+
+                        <br> This demonstrates that the sample mean \(\bar{X}_n\) is approximately normally distributed with mean \(\mu\) and variance \(\sigma^2/n\):
+
+                        \begin{equation}
+                            \bar{X}_n \sim N(\mu, \sigma^2/n)
+                        \end{equation}
+
+                        The CLT implies that as the sample size increases, the distribution of \(\bar{X}_n\) becomes closer to a normal distribution. This is a crucial result in statistics, allowing us to use the normal distribution for various statistical inferences.
+
+                </p>
+                <div class="question">Example 1: </div>
+                As a result of the implementation of homework 3, we can observe:
+                <div class="image-grid">
+                    <figure>
+                        <img src="CLT3.png" alt="Descrizione dell'immagine">
+                        <figcaption>N=33 , M=50, P=0.5</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="CLT4.png" alt="Descrizione dell'immagine">
+                        <figcaption>N=15, M=20, P=0.5</figcaption>
+                    </figure>
+                </div>
+                So, as we can see, if the numbers of N and M are big, the histogram seems to be like a normal distribution.
+                Otherwise, with a smaller number of attacks and systems, the distribution is different than the normal one. In fact, the lengths of the histogram columns are similar to each other.
+            </p>
+      </div>
+      <br>
+      <div class="section bibliography">
+          <p><strong>Bibliography:</strong></p>
+          <ol>
+              <li>Lecture notes from the lesson of the statistics course</li>
+              <li><a href="https://www.probabilitycourse.com/chapter7/7_1_1_law_of_large_numbers.php"> Probabilitycourse.com</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Law_of_large_numbers"> Wikipedia.org </a></li>
+              <li><a href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_probability/BS704_Probability12.html"> Boston University</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Central_limit_theorem"> Wikipedia.org </a></li>
+              <li><a href="https://corporatefinanceinstitute.com/resources/data-science/central-limit-theorem/"> Corporatefinanceinstitute.com</a></li>
+          </ol>
+      </div>
+      <br>
+    </div>
+  </body>
+</html>
