@@ -150,7 +150,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td> HW 4</td>
+                  <td> HW 4 - TH1 - TH2</td>
                   <td>26 October 2023</td>
                   <td>theoretical</td>
                   <td><button type="button" class="btn btn-warning">
