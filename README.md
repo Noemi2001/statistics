@@ -158,11 +158,11 @@
                   </button></td>
                 </tr>
                 <tr>
-                  <td> TH 3 </td>
+                  <td> TH3 </td>
                   <td>/</td>
                   <td>thesis</td>
                   <td><button type="button" class="btn btn-warning">
-                    <a href="https://noemi2001.github.io/statistics/TH3/th3.html" style="color: white;">Read</a>
+                    <a href="https://noemi2001.github.io/statistics/TH3/Th3.html" style="color: white;">Read</a>
                   </button></td>
                 </tr>
             </tbody>
