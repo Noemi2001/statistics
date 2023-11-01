@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Thesis 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: Georgia;
+            margin: 60px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: justify;
+        }
+
+        .question {
+            text-decoration: underline;
+            font-size: 20px
+        }
+
+        .answer {
+            margin-left: 20px;
+        }
+
+        .bibliography {
+            margin-top: 30px;
+        }
+
+        figure {
+            text-align: center; 
+            margin-right: 20px;
+        }
+
+        img {
+            max-width: 350px; 
+            height: auto;
+        }
+
+        .image-grid {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+  </head>
+  <body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="background-color: white;">
+    <br>
+      <h1>Thesis 3: Gaussian distribution</h1>
+      <div class="section">
+            <h4>Introduction</h4>
+            <p class="answer">
+                Normal distributions are important in statistics and are often used to represent real-valued random variables whose distributions are not known. Their importance is partly due to the central limit theorem.
+                <br>In statistics, a <strong> normal distribution </strong>or Gaussian distribution is a type of continuous probability distribution for a real-valued random variable that is referred as N(μ,σ^2 ). <br> The general form of its probability density function is: <br>
+                <script type="math/tex">
+                    f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x - \mu}{\sigma}\right)^2}
+                </script>
+                <br>The parameter µ is the mean or expectation value of the distribution, the parameter  is its standard deviation and its variance is σ^2.
+                <br>
+                A normal distribution is sometimes informally called a bell curve because of its shape: symmetric and unimodal with tails that appear to extend to positive and negative infinity. In a normal curve, approximately 68% of the values fall within one standard deviation of the mean, 95% fall within two standard deviations, and 99.7% fall within three standard deviations.
+                <div class="image-grid">
+                    <figure>
+                        <img src="nd1.gif" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+                Moreover, Gaussian distributions have some unique properties. For instance, any linear combination of a fixed collection of normal deviates is a normal deviate.
+                <br>
+                <br>
+                <h6><strong>Standard normal distribution</strong></h6>
+                The simplest case of a normal distribution is known as the standard normal distribution. This is a special case when μ=0 and σ=1, and it is described by this probability density function:
+                <script type="math/tex">
+                    \phi(z) = \frac{e^{-\frac{z^2}{2}}}{\sqrt{2\pi}}
+                </script>
+                <br>Where z is a continuous random variable that has a mean of 0 and a variance and standard deviation of 1. 
+                <br>The 
+                <script type="math/tex">
+                    \frac{1}{\sqrt{2\pi}} 
+                </script> is there to make sure that the area under the PDF is equal to one. 
+                <br>
+                <br>
+                <h6><strong>General normal distribution</strong></h6>
+                Every normal distribution is a version of the standard normal distribution, whose domain has been stretched by the standard deviation and then translated by the mean value:
+                <script type="math/tex">
+                    f(x| \mu, \sigma^2) = \frac{1}{v} \psi\left(\frac{x - \mu}{\sigma}\right)
+                </script>
+            </p>
+            <h4>Applications</h4>
+            <p class="answer">
+                The Gaussian distribution has several utilities and applications, including:
+                <ol>
+                    <li>
+                    <strong>Modeling Data</strong>: The Gaussian distribution is often used to model and describe real-world data. Many natural phenomena follow a normal distribution pattern. When data is approximately normally distributed, it allows for the use of various statistical techniques.
+                    </li>
+                    <li>
+                    <strong>Statistical Inference</strong>: Many statistical tests rely on the assumption of normality, which simplifies the mathematical procedures and enhances the interpretability of results.
+                    </li>
+                    <li>
+                    <strong>Machine Learning</strong>: Gaussian distributions are used in various machine learning algorithms. For example, Gaussian Naive Bayes is a classification algorithm that assumes that features follow a Gaussian distribution. Also, Gaussian Mixture Models are used for clustering and density estimation in unsupervised learning.
+                    </li>
+                    <li>
+                    <strong>Process Control</strong>: Gaussian distribution is used to monitor and control processes. It helps in identifying deviations and anomalies in production, ensuring products meet quality standards.
+                    </li>
+                    <li>
+                    <strong>Risk Assessment</strong>: In finance, the Gaussian distribution is often used to model asset returns and assess financial risk. The concept of value at risk (VaR) relies on the assumption of normally distributed returns.
+                    </li>
+                    <li>
+                    <strong>Physics and Engineering</strong>: The Gaussian distribution is essential in various areas of physics and engineering, such as thermodynamics, quantum mechanics, and the modeling of random processes.
+                    </li>
+                    <li>
+                    <strong>Social Sciences</strong>: Gaussian distributions are used in various social science disciplines to analyze and model human behaviors, survey data, and psychological test scores.
+                    </li>
+                </ol>
+            </p>
+            <h4>Simulation</h4>
+            <p class="answer">
+                <div class="image-grid">
+                    <figure>
+                        <img src="nd2.png" alt="Descrizione dell'immagine">
+                    </figure>
+                    <figure>
+                        <img src="nd3.png" alt="Descrizione dell'immagine">
+                    </figure>
+                    <figure>
+                        <img src="nd4.png" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+            </p>
+      </div>
+      <br>
+      <div class="section bibliography">
+          <p><strong>Bibliography:</strong></p>
+          <ol>
+              <li>Lecture notes from the lesson of the statistics course</li>
+              <li><a href="https://www.probabilitycourse.com/chapter4/4_2_3_normal.php"> Probabilitycourse.com</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Normal_distribution"> Wikipedia.org </a></li>
+              <li><a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/gaussian-distribution"> sciencedirect.com </a></li>
+              <li><a href="https://homepage.divms.uiowa.edu/~mbognar/applets/normal.html"> Simulation</a></li>
+          </ol>
+      </div>
+      <br>
+    </div>
+  </body>
+</html>
