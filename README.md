@@ -152,9 +152,17 @@
                 <tr>
                   <td> HW 4 - TH1 - TH2</td>
                   <td>26 October 2023</td>
-                  <td>theoretical</td>
+                  <td>theoretical + thesis </td>
                   <td><button type="button" class="btn btn-warning">
                     <a href="https://noemi2001.github.io/statistics/HW4/HW4_Theory.html" style="color: white;">Read</a>
+                  </button></td>
+                </tr>
+                <tr>
+                  <td> TH 3 </td>
+                  <td>/</td>
+                  <td>thesis</td>
+                  <td><button type="button" class="btn btn-warning">
+                    <a href="https://noemi2001.github.io/statistics/TH3/th3.html" style="color: white;">Read</a>
                   </button></td>
                 </tr>
             </tbody>
