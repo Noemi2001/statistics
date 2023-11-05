@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> HW 5 - Theory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: Georgia;
+            margin: 60px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            margin-right: 10px;
+            text-align: justify;
+        }
+
+        .question {
+            text-decoration: underline;
+            font-size: 20px
+        }
+
+        .answer {
+            margin-left: 15px;
+        }
+
+        .bibliography {
+            margin-top: 30px;
+        }
+
+        figure {
+            text-align: center; 
+            margin-right: 20px;
+        }
+
+        img {
+            max-width: 350px; 
+            height: auto;
+        }
+
+        .image-grid {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+  </head>
+  <body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="background-color: white;">
+    <br>
+        <h1>Homework 5 - Thesis 9</h1>
+        <div class="section">
+            <h4>Poisson point process</h4>
+            <p class="answer">                
+                A <strong>Poisson point process</strong> is a mathematical model used to describe the random distribution of points in space or time. It is characterized by the following properties:
+                <ol>
+                    <li>Independence: The occurrence of points is independent of one another.</li>
+                    <li>Homogeneity: The points are distributed uniformly throughout the space or time interval.</li>
+                    <li>Poisson property: The number of points in non-overlapping regions follows a Poisson distribution.</li>
+                </ol>
+                <p class="answer">
+                    So, In probability and statistics, a Poisson point process is a type of random mathematical object that consists of points randomly located on a mathematical space with the feature that the points occur independently of one another.
+                </p>
+                <div class="image-grid">
+                    <figure>
+                        <img src="img1.png" alt="Descrizione dell'immagine">
+                    </figure>
+                    <figure>
+                        <img src="img2.png" alt="Descrizione dell'immagine">
+                    </figure>
+                    <figure>
+                        <img src="img3.png" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+                <br>
+                <br>
+                <p class="answer">
+                    The Poisson distribution models the number of events occurring within a specific time period, with the key assumption that the occurrence of each event is independent of what happens at all other times.
+                    <br>
+                    <br>
+                    The formula that describes the Poisson distribution is as follows:
+                    \[P(N = n) = \frac{e^{-\lambda} \lambda^n}{n!}\]
+                    Where:<br>
+                    P(N=n) represents the probability that the number of events N is equal to n.<br>
+                    "λ" (lambda) is the parameter of the Poisson distribution, which represents the average rate of events occurring in a given time or space interval.<br>
+                    "e" is the constant Euler's number (approximately 2.71828). <br>
+                    "n" is the specific number of events you are trying to calculate. <br>
+                    <br>
+                    This formula is used to calculate the probability that exactly n events occur in a time or space interval, given the average rate λ of events and the assumption of independence and homogeneity of events.
+                </p>
+                <br>
+            </p>
+            <p class="question"> Example </p>
+            <p class="answer">
+                For example, the number of successful attacks on a system in which each attack is independent of all the past ones is a scenario well-suited for modeling with a Poisson distribution. In this case, the Poisson distribution can be used to estimate the number of successful attacks that occur within a specific time period, assuming that the attacks happen randomly and independently of each other. This scenario respects the following properties:
+                <ol>
+                    <li>Independence: Each attack is independent of all previous and future attacks. The occurrence of one attack does not affect the likelihood of another occurring.</li>
+                    <li>Homogeneity: The attacks are distributed uniformly over time or space, and their probability of occurring is constant.</li>
+                </ol>
+                Tanks to the algorithm of the homework 5, we can observe the following simulation:
+                <figure>
+                    <img src="sim1.png" alt="Descrizione dell'immagine" style="max-width: 800px; height: auto; margin-top: 10px;">
+                    <figcaption>N=50, M=100, λ=3</figcaption>
+                </figure>
+                <figure>
+                    <img src="sim2.png" alt="Descrizione dell'immagine" style="max-width: 800px; height: auto; margin-top: 10px;">
+                    <figcaption>N=50, M=100, λ=10</figcaption>
+                </figure>
+                <figure>
+                    <img src="sim3.png" alt="Descrizione dell'immagine" style="max-width: 800px; height: auto; margin-top: 10px;">
+                    <figcaption>N=20, M=20, λ=20</figcaption>
+                </figure>
+                So, the distributions come close to the theoretical asymptotic distribution for N, M sufficiently large and for small λ.
+            </p>
+            <div class="section bibliography">
+                <p><strong>Bibliography:</strong></p>
+                <ol>
+                    <li>Lecture notes from the lesson of the statistics course</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Poisson_point_process"> Wikipedia</a></li>
+                    <li><a href="https://almostsuremath.com/2020/12/29/poisson-point-processes/"> AlmostSureMath</a></li>
+                    <li><a href="https://tsoo-math.github.io/ucl/poisson.html"> tsoo-math.github</a></li>
+                    <li><a href="https://hpaulkeeler.com/checking-poisson-point-process-simulations/"> https://hpaulkeeler.com/</a></li>
+                </ol>
+            </div>
+            <br>
+        </div>
+    </div>
+  </body>
+</html>
