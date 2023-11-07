@@ -239,7 +239,7 @@
             }
     
             zoom(scale) {
-                let fattoreScala = (this.gridXfin-this.gridXini)/(this.gridYfin - this.gridYini) * N * 10;
+                let fattoreScala = (this.gridXfin-this.gridXini)/(this.gridYfin - this.gridYini) * N;
                 if(this.gridXini - fattoreScala*scale < this.gridXfin + fattoreScala*scale){
                     this.gridXini -= fattoreScala*scale
                     this.gridXfin += fattoreScala*scale
@@ -544,7 +544,7 @@
                     let x = (rect.gridXini + rect.offsetViewX) + (pos)*factorXHistogram;
                     let y = (rect.gridYini + rect.offsetViewY) + (rect.gridYfin - rect.gridYini)/2 - barHeight - p*factorY;
     
-                    ctx.fillStyle = "rgba(0, 0, 255, 0.8)"; 
+                    ctx.fillStyle = "rgba(0, 0, 255, 1)"; 
                     ctx.fillRect(x, y, barWidth, barHeight);
                     ctx.fillStyle = "black";
                     ctx.textAlign = "center";
@@ -555,7 +555,12 @@
             ctx.restore();
         }
     
+        function calcolaN(){
+            "use strict";
+        }
+    
         function drawChart(rect) {    
+            "use strict";   
             drawDataset = [];
             for(let i = 0; i < N; i += 0.5){
                 drawDataset[i] = [];
@@ -570,9 +575,10 @@
                     drawDataset[i][j] = 0;
                 }
             }
-            "use strict";   
             let factorX = (rect.gridXfin - rect.gridXini)/N;
             let factorY = ((rect.gridYfin - rect.gridYini)/2)/N;
+    
+            calcolaN();
     
             for (var n = 0; n < N; n++) {            
                 for(var m = 0; m < M; m++){
