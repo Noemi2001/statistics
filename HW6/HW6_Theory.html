@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> HW 6 - Theory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: Georgia;
+            margin: 60px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            margin-right: 10px;
+            text-align: justify;
+        }
+
+        .question {
+            text-decoration: underline;
+            font-size: 20px
+        }
+
+        .answer {
+            margin-left: 15px;
+        }
+
+        .bibliography {
+            margin-top: 30px;
+        }
+
+        figure {
+            text-align: center; 
+            margin-right: 20px;
+        }
+
+        .formula{
+            text-align: center; 
+        }
+
+        img {
+            width: 400px; 
+            height: auto;
+        }
+
+        .image-grid {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+  </head>
+  <body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="background-color: white;">
+    <br>
+        <h1>Homework 6: Gambler's Ruin Problem</h1>
+        <div class="section">
+            <p class="answer">  
+                <h4>Problem</h4>
+                The basic form of the Gambler’s Ruin Problem involves two players, A and B, engaged in a probabilistic game. In each round, there's a probability p (where 0 < p < 1) that A will win against B, and the complementary probability (1 - p) that B will win. Both players start with initial wealth (A with i, and B with k - i, where k is the total wealth). Wealth is always positive, and the game continues indefinitely until one player loses their entire initial wealth and can no longer play.
+                Consider A's initial wealth, i, as an integer dollar amount, and each game is played for one dollar. A must play at least i games to reduce their wealth to zero. If the game is fair (p = 1/2), A has a 50-50 chance in each round. If p > 1/2, A has a systematic advantage; if p < 1/2, A has a disadvantage. The possible outcomes are either A ending with k dollars (B losing all money) or A ending with 0 dollars (B having all the wealth). 
+                <br>
+                The key analysis focuses on determining the probability of A ending with k dollars rather than 0 dollars. In any case, one of the players will face financial ruin, giving rise to the name Gambler’s Ruin.
+                <div class="image-grid">
+                    <figure>
+                        <img src="ex1.png" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+                <br>
+                <h4>Solution</h4>
+                Our goal is to ascertain the probability, denoted as aᵢ, that gambler A will conclude with k dollars, given an initial wealth of i dollars, assuming all games are identical and independent. Each game represents a new iteration of the Gambler’s Ruin problem, with differing initial wealth based on the outcome of the previous game.
+                Mathematically, we can envision each sequence of games leading to gambler A having j dollars (where j ranges from 0 to k). The probability of A winning in a specific sequence is denoted as aⱼ. If A ends with k dollars, aₖ equals 1; if A ends with 0 dollars, a₀ is 0. Our focus is on determining probabilities for all values of i from 1 to k - 1.
+                <br>
+                <br>
+                Notation: A₁ signifies A winning game 1, while B₁ denotes B winning. The event W represents A ending with k dollars before hitting 0. The probability of this event, P(W), is determined using conditional probability properties.
+                The probability of A winning, P(W), given an initial wealth of i dollars, is represented by aᵢ. 
+                <br>
+                <br>
+                If A gains a dollar in the first game, their wealth becomes i+1; if they lose a dollar, it's i-1. The probability of winning the entire sequence hinges on whether A won the first game. This logic translates into an equation that relates the probability of winning one dollar each game, p, and the conditional probabilities of winning the sequence given the gambler's wealth.
+                <br> <p class="formula"> \(a_i = pa_{i+1} + (1 - p)a_{i-1}\) </p>
+                Gambler A's wealth ranges from the total initial wealth of both players to zero. For i=1 to k - 1, we can plug in values to generate k - 1 equations. Algebraic manipulation condenses these equations into a standardized format, providing a fundamental relation between the winning probability, p, total initial wealth, k, and the probability of winning with one dollar, a₁. Solving for a₁ enables iterative determination of aᵢ for all possible i values.
+                <br><p class="formula"> \(1 - a_1 = \sum_{i=1}^{k-1} \left(\frac{1-p}{p}\right)^i\) </p>
+                Now, let's consider two scenarios: a fair game (p=1/2) and an unfair game (p≠1/2). In a fair game, the equation simplifies to 1 - a₁ = (k - 1)a₁, rearranging to a₁ = 1/k. This elegant result reveals that, in a fair game, the probability of A ending with k dollars before zero is i/k, where i is the initial wealth.
+                <br> <p class="formula"> \(a_i = \frac{k}{i}\) for \(i = 1, \ldots, k-1\)</p>
+                For an unfair game (p≠1/2), a general solution emerges, dependent on p and wealth parameters. The approach provides a systematic understanding of the Gambler’s Ruin Problem, unraveling the probabilities under different game conditions.
+                <br> <p class="formula"> \(a_i = \frac{(\frac{1-p}{p})^{k} -1 }{(\frac{1-p}{p})^{i}-1}\) for \(i = 1, \ldots, k-1\) </p>
+            </p>
+            <p class="question"> Example </p>
+            <p class="answer">
+            </p>
+            <div class="section bibliography">
+                <p><strong>Bibliography:</strong></p>
+                <ol>
+                    <li>Lecture notes from the lesson of the statistics course</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Gambler%27s_ruin"> Wikipedia</a></li>
+                    <li><a href="https://sites.math.rutgers.edu/~zeilberg/EM20/GamblersRuin.pdf"> sites.math.rutgers.edu </a></li>
+                    <li><a href="https://towardsdatascience.com/the-gamblers-ruin-problem-9c97a7747171">  towardsdatascience </a></li>                </ol>
+            </div>
+            <br>
+        </div>
+    </div>
+  </body>
+</html>
