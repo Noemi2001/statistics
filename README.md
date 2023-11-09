@@ -192,6 +192,33 @@
                     <a href="https://noemi2001.github.io/statistics/HW5/HW5_Theory.html" style="color: white;">Read</a>
                   </button></td>
                 </tr>
+                <tr>
+                  <td style="vertical-align: middle;"> HW 6 </td>
+                  <td style="vertical-align: middle;">9 November 2023</td>
+                  <td style="vertical-align: middle;">practical</td>
+                  <td style="vertical-align: middle;">
+                    <table class="table custom-table" style="margin:0; padding:0; border:none;">
+                      <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
+                        <button type="button" class="btn btn-success">
+                          <a href="https://noemi2001.github.io/statistics/HW6/HW6_JS.html" style="color: white;"> JS Version </a>
+                        </button>
+                      </td></tr>
+                      <tr style="margin:0; padding:0;"><td style="margin:0; padding:0; border:none;">
+                        <button type="button" class="btn btn-success">
+                          <a href="https://noemi2001.github.io/statistics/HW6/pageExtra.html" style="color: white;"> C# Version </a>
+                        </button>
+                      </td></tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td> HW 6</td>
+                  <td>9 November 2023</td>
+                  <td>theoretical </td>
+                  <td><button type="button" class="btn btn-warning">
+                    <a href="https://noemi2001.github.io/statistics/HW6/HW6_Theory.html" style="color: white;">Read</a>
+                  </button></td>
+                </tr>
             </tbody>
         </table>
     </div>
