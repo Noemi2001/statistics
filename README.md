@@ -243,6 +243,14 @@
                     <a href="https://noemi2001.github.io/statistics/TH6/TH6.html" style="color: white;">Read</a>
                   </button></td>
                 </tr>
+                <tr>
+                  <td> TH 7 </td>
+                  <td>/</td>
+                  <td>thesis</td>
+                  <td><button type="button" class="btn btn-warning">
+                    <a href="https://noemi2001.github.io/statistics/TH7/TH7.html" style="color: white;">Read</a>
+                  </button></td>
+                </tr>
             </tbody>
         </table>
     </div>
