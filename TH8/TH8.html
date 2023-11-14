@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> TH 8 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: Georgia;
+            margin: 60px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            margin-right: 10px;
+            text-align: justify;
+        }
+
+        .question {
+            text-decoration: underline;
+        }
+
+        .answer {
+            margin-left: 15px;
+        }
+
+        .bibliography {
+            margin-top: 30px;
+        }
+
+        figure {
+            text-align: center; 
+            margin-right: 20px;
+        }
+
+        .formula{
+            text-align: center; 
+        }
+
+        img {
+            width: 400px; 
+            height: auto;
+        }
+
+        .image-grid {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+  </head>
+  <body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="background-color: white;">
+    <br>
+        <h1>Thesis 8: Stochastic processes and SDE's</h1>
+        <div class="section">
+            <p class="answer">  
+                A <strong>stochastic process</strong> is a mathematical model that represents the evolution of a system over time in a way that is subject to random variations. In simpler terms, it's a collection of random variables indexed by time.<br>
+                A stochastic process can be discrete-time or continuous-time. In discrete-time, the random variables evolve at distinct, separate points in time, while in continuous-time, they evolve continuously.
+                <div class="image-grid">
+                    <figure>
+                        <img src="img1.png" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+                Stochastic processes have several properties:
+                <ol>
+                    <li> A stochastic process is <strong>stationary</strong> if its statistical properties remain constant over time. In other words, the mean, variance, and correlation structure of the process do not change.</li>
+                    <li> A stochastic process has the <strong>Markov property</strong> if the future behavior of the process only depends on its current state, and not on its past history. </li>
+                    <li> A stochastic process is a <strong>martingale</strong> if its expected value at any future time, given its current value, is equal to its current value.</li>
+                    <li> A stochastic process is said to be <strong>ergodic</strong> if the time average of a random variable, computed along a single sample path, converges to the expected value as the time horizon goes to infinity.</li>
+                </ol>
+                Examples of stochastic processes include Poisson processes and Markov processes.
+
+                <br><br>
+                <strong> Differential Equations</strong> are differential equations that involve both deterministic and random components. They are used to model the evolution of systems where randomness plays a significant role.<br>
+                The general form of a one-dimensional SDE is given by:
+                    \[ dX_t = a(t, X_t) \, dt + b(t, X_t) \, dW_t \]
+                    where \(X_t\) is the process, \(a(t, X_t)\) and \(b(t, X_t)\) are deterministic functions, \(dt\) represents the deterministic part, and \(dW_t\) represents the random part (Brownian motion). <br>
+
+                <br>SDEs provide a way to describe how systems evolve over time when influenced by both deterministic forces and random fluctuations.
+
+                <br>The solution to an SDE is a stochastic process. For example, if \(X_t\) satisfies the SDE above, then \(\{X_t, t \geq 0\}\) is a stochastic process.
+
+                <p class="question">Example</p>
+                Stochastic differential equations (SDEs) appear today as a modeling tool in several sciences as telecommunications, economics, finance, biology, and quantum field theory.
+                <ol>
+                    <li> In finance, SDEs are often used to model the movement of asset prices. </li>
+
+                    <li> In physics, SDEs are used to model the Brownian motion of particles in a fluid.</li>
+
+                    <li> In biology, SDEs can be used to model population dynamics, where the growth of a population is influenced by both deterministic factors (e.g., birth rate) and random factors (e.g., environmental fluctuations). </li>
+                </ol>
+            </p>
+            <div class="section bibliography">
+                <p><strong>Bibliography:</strong></p>
+                <ol>
+                    <li>Lecture notes from the lesson of the statistics course</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Stochastic_differential_equation"> wikipedia </a></li>
+                    <li><a href="https://www.sciencedirect.com/topics/mathematics/stochastic-differential-equation"> sciencedirect </a></li>              
+                    <li><a href="https://www.linkedin.com/pulse/properties-stochastics-s002-davence-hackwell"> linkedin </a></li>
+                </ol>
+            </div>
+            <br>
+        </div>
+    </div>
+  </body>
+</html>
