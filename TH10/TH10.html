@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> TH 10 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: Georgia;
+            margin: 60px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            margin-right: 10px;
+            text-align: justify;
+        }
+
+        .question {
+            text-decoration: underline;
+        }
+
+        .answer {
+            margin-left: 15px;
+        }
+
+        .bibliography {
+            margin-top: 30px;
+        }
+
+        figure {
+            text-align: center; 
+            margin-right: 20px;
+        }
+
+        .formula{
+            text-align: center; 
+        }
+
+        img {
+            width: 400px; 
+            height: auto;
+        }
+
+        .image-grid {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .canvasContainer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+    </style>
+  </head>
+  <body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="background-color: white;">
+    <br>
+        <h1>Thesis 10: The Wiener process and the GBM, Derivations and simulations</h1>
+        <div class="section">
+            <p class="answer">  
+                The Wiener process, also known as Brownian motion, is a continuous-time stochastic process that has independent and normally distributed increments. The most important properties of the Wiener process are:
+                <ol>
+                    <li><strong>Continuous Paths</strong>: Brownian motion has continuous sample paths.</li>
+                    <li><strong>Gaussian Increments</strong>: The increments of the process over disjoint time intervals are independent and normally distributed.</li>
+                </ol>
+
+                <div class="image-grid">
+                    <figure>
+                        <img src="img1.png" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+            
+                The differential form of the Wiener process is often written as:
+
+                \[ dW(t) = \mu \, dt + \sigma \, dZ(t) \]
+
+                where: <br>
+                - \(W(t)\) is the value of the Wiener process at time \(t\),<br>
+                - \(\mu\) is the drift parameter,<br>
+                - \(\sigma\) is the volatility (= diffusion parameter),<br>
+                - \(Z(t)\) is a standard Brownian motion,<br>
+                - \(dt\) is an infinitesimally small time increment.<br>
+
+                <br>
+
+                The <strong>Geometric Brownian Motion</strong> is a stochastic process that is often used to model the stock prices in financial mathematics. It is an extension of the Wiener process with a drift and a volatility term. The differential equation for GBM is given by:
+
+                \[ dS(t) = \mu S(t) \, dt + \sigma S(t) \, dZ(t) \]
+
+                where:<br>
+                - \(S(t)\) is the stock price at time \(t\),<br>
+                - \(\mu\) is the drift (average rate of return),<br>
+                - \(\sigma\) is the volatility (standard deviation of the rate of return),<br>
+                - \(Z(t)\) is a standard Brownian motion,<br>
+                - \(dt\) is an infinitesimally small time increment.<br>
+                <br>
+
+                <p class="question">Applications:</p>
+                The Wiener process (Brownian motion) and the Geometric Brownian Motion (GBM) have various applications in different fields, including finance, physics, and biology. Here are some notable applications:
+                <ol>
+                    <li>Finance: Stock Price Modeling, Option Pricing and Risk Management.</li>
+                    <li>Physics: Diffusion Processes of molecules.</li>
+                    <li>Biology: Population Dynamics</li>
+                    <li>Computer Science: Monte Carlo Simulations</li>
+                    <li>Engineering: Signal Processing</li>
+                    <li>Climate Modeling: Climate Modeling</li>
+                </ol>
+
+                <p class="question">Simulations:</p>
+                <p>Click the canvas to perform a Monte Carlo simulation. Points inside the circle are shown in green, otherwise they are red.</p>
+                <div class="canvasContainer">
+                    <canvas id="monteCarloCircleCanvas" width="500" height="500" style="background-color: rgb(238, 238, 238);"></canvas>
+                    <script>
+                        const canvas = document.getElementById('monteCarloCircleCanvas');
+                        const ctx = canvas.getContext('2d');
+                        let insideCircleCount = 0;
+                        let totalPoints = 0;
+                    
+                        canvas.addEventListener('click', performSimulation);
+
+                        function drawCircle() {
+                            const centerX = canvas.width / 2;
+                            const centerY = canvas.height / 2;
+                            const radius = canvas.width * 0.3;
+                            
+                            ctx.beginPath();
+                            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+                            ctx.strokeStyle = 'blue';
+                            ctx.lineWidth = 2;
+                            ctx.stroke();
+                        }
+                    
+                        function performSimulation() {
+                        totalPoints += 1;
+                    
+                        const x = Math.random() * canvas.width;
+                        const y = Math.random() * canvas.height;
+                    
+                        const distance = Math.sqrt(Math.pow(x - canvas.width / 2, 2) + Math.pow(y - canvas.height / 2, 2));
+                    
+                        if (distance <= canvas.width * 0.3) {
+                            insideCircleCount += 1;
+                            ctx.fillStyle = 'green';
+                        } else {
+                            ctx.fillStyle = 'red';
+                        }
+                    
+                        ctx.beginPath();
+                        ctx.arc(x, y, 2, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        drawCircle();
+                    
+                        const piEstimation = (insideCircleCount / totalPoints) * 4;
+                        console.log('Current estimation of π:', piEstimation);
+                        }
+                    </script>
+                </div>
+            </p>
+            <div class="section bibliography">
+                <p><strong>Bibliography:</strong></p>
+                <ol>
+                    <li>Lecture notes from the lesson of the statistics course</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion"> wikipedia </a></li>
+                    <li><a href="https://www.sciencedirect.com/topics/mathematics/geometric-brownian-motion"> sciencedirect </a></li>              
+                </ol>
+            </div>
+            <br>
+        </div>
+    </div>
+  </body>
+</html>
