@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> TH 11 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: Georgia;
+            margin: 60px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            margin-right: 10px;
+            text-align: justify;
+        }
+
+        .question {
+            text-decoration: underline;
+        }
+
+        .answer {
+            margin-left: 15px;
+        }
+
+        .bibliography {
+            margin-top: 30px;
+        }
+
+        figure {
+            text-align: center; 
+            margin-right: 20px;
+        }
+
+        .formula{
+            text-align: center; 
+        }
+
+        img {
+            width: 300px; 
+            height: auto;
+        }
+
+        .image-grid {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+  </head>
+  <body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="background-color: white;">
+    <br>
+        <h1>Thesis 11: The functional CLT (Donsker's invariance principle)</h1>
+        <div class="section">
+            <p class="answer">  
+                The Functional Central Limit Theorem (CLT) and Donsker's Invariance Principle provide an explenation of the asymptotic behavior of functionals of random processes.
+                Donsker's Invariance Principle  states that the distributional limit of suitably normalized random walks in function spaces is a Brownian motion. 
+                It is as an extension of the central limit theorem.<br><br>
+
+                <div class="image-grid">
+                    <figure>
+                        <img src="img1.gif" alt="Descrizione dell'immagine">
+                    </figure>
+                </div>
+                Consider a sequence of independent and identically distributed (i.i.d.) random variables with a mean of 0 and variance of 1, denoted as \(X_1, X_2, X_3, \ldots\) . <br>Let \(S_n = \sum_{i=1}^n X_i\) represent the stochastic process known as a random walk. The diffusively rescaled random walk, denoted as \(W^{(n)}(t)\) and defined for \(t \in [0,1]\), is given by \(\frac{S_{\lfloor nt\rfloor}}{\sqrt{n}}\).<br>
+
+                The central limit theorem asserts that as \(n\) tends to infinity, \(W^{(n)}(1)\) converges in distribution to a standard Gaussian random variable \(W(1)\). Donsker's invariance principle extends this convergence to the entire function \(W^{(n)} := (W^{(n)}(t))_{t\in [0,1]}\). <br>In a more precise formulation, Donsker's invariance principle, states that as \(n\) approaches infinity, the random function \(W^{(n)}\) converges in distribution to a standard Brownian motion \(W := (W(t))_{t\in [0,1]}\), where both are considered as random variables in the Skorokhod space \(\mathcal{D}[0,1]\).
+                <br><br>
+            
+                <p class="question">Simulation</p>
+                We can observe a simulation of random walks in the <a href="https://noemi2001.github.io/statistics/HW6/HW6_JS.html"> Homework 6</a></li>
+                
+            </p>
+            <div class="section bibliography">
+                <p><strong>Bibliography:</strong></p>
+                <ol>
+                    <li>Lecture notes from the lesson of the statistics course</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Donsker%27s_theorem"> wikipedia </a></li>
+                    <li><a href="https://arxiv.org/pdf/1912.07215.pdf"> PDF 1 </a></li>
+                    <li><a href="https://www.math.utah.edu/~davar/ps-pdf-files/donsker.pdf"> PDF 2 </a></li>              
+                </ol>
+            </div>
+            <br>
+        </div>
+    </div>
+  </body>
+</html>
