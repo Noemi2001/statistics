@@ -79,7 +79,25 @@
 
                 The central limit theorem asserts that as \(n\) tends to infinity, \(W^{(n)}(1)\) converges in distribution to a standard Gaussian random variable \(W(1)\). Donsker's invariance principle extends this convergence to the entire function \(W^{(n)} := (W^{(n)}(t))_{t\in [0,1]}\). <br>In a more precise formulation, Donsker's invariance principle, states that as \(n\) approaches infinity, the random function \(W^{(n)}\) converges in distribution to a standard Brownian motion \(W := (W(t))_{t\in [0,1]}\), where both are considered as random variables in the Skorokhod space \(\mathcal{D}[0,1]\).
                 <br><br>
-            
+                
+                <p class="question">Proof</p>
+                The main idea is to embed the sequence of random variables \(X_1, X_2, \ldots, X_n\) in the same probability space as a Brownian motion, ensuring that the scaled partial sums \(S_n^*\) closely resemble the behavior of a scaled Brownian motion. The rough sketch proceeds as follows:
+
+                <ol>
+                    <li>                
+                        Start with a standard Brownian motion \(B_t\) and define the stopping times \(T_n\) at which \(B_t\) intersects the horizontal integer lines \(\{B_t = n : n \in \mathbb{Z}\}\).
+                        Formally, set \(T_1 := \inf\{t : |B_t| = 1\}\) and \(T_{n+1} := \inf\{t > T_n : |B_t - B_{T_n}| = 1\}\), where \(T_n\) is a stopping time.
+                    </li>
+                    <li>
+                        Utilize Skorokhod embedding, which asserts the existence of a stopping time \(T\) such that \(B_T\) follows the law of a random variable \(X\) with \(E[X] = 0\), \(E[X^2] < \infty\), and \(E[T] = E[X^2]\).
+                        Let \(X\) be a real random variable with mean 0 and variance 1. Define \(T_1\) such that \(E[T_1] = 1\) and \(B_{T_1}\) has the same distribution as \(X\).
+                        Similarly, define \(T_0^2\) with \(E[T_0^2] = 1\) and \(B_{T_0^2}\) having the same distribution as \(X\). Set \(T_2 = T_1 + T_0^2\) with \(E[T_2] = 2\).
+                        Continue this process to inductively define a sequence of stopping times \(T_1 < T_2 < \ldots < T_n\) such that \(S_n = B_{T_n}\), meaning the Brownian motion with stopping times \(T_n\) has the same distribution as the simple random walk (SRW) described by \(S_n\).        
+                    </li>
+                    <li>
+                        Neglecting technical details, having found a suitable embedding with the desired properties, the key result is that, after rescaling our Brownian motion, the difference \(\sqrt{n} \left(B_{nt}/\sqrt{n} - S_n^*\right)\) becomes negligible as \(n \to \infty\). This implies the convergence in distribution of the scaled empirical process to a standard Brownian bridge.
+                    </li>
+                </ol>
                 <p class="question">Simulation</p>
                 We can observe a simulation of random walks in the <a href="https://noemi2001.github.io/statistics/HW6/HW6_JS.html"> Homework 6</a></li>
                 
@@ -90,7 +108,7 @@
                     <li>Lecture notes from the lesson of the statistics course</li>
                     <li><a href="https://en.wikipedia.org/wiki/Donsker%27s_theorem"> wikipedia </a></li>
                     <li><a href="https://arxiv.org/pdf/1912.07215.pdf"> PDF 1 </a></li>
-                    <li><a href="https://www.math.utah.edu/~davar/ps-pdf-files/donsker.pdf"> PDF 2 </a></li>              
+                    <li><a href="https://sites.math.washington.edu/~rohde/583/Lectures13_14.pdf"> PDF 2 </a></li>              
                 </ol>
             </div>
             <br>
