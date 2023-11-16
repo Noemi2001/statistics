@@ -129,44 +129,45 @@
                         const ctx = canvas.getContext('2d');
                         let insideCircleCount = 0;
                         let totalPoints = 0;
-                    
-                        canvas.addEventListener('click', performSimulation);
-
+                
+                        // Chiamiamo la funzione performSimulation ogni secondo
+                        setInterval(performSimulation, 1000);
+                
                         function drawCircle() {
                             const centerX = canvas.width / 2;
                             const centerY = canvas.height / 2;
                             const radius = canvas.width * 0.3;
-                            
+                
                             ctx.beginPath();
                             ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
                             ctx.strokeStyle = 'blue';
                             ctx.lineWidth = 2;
                             ctx.stroke();
                         }
-                    
+                
                         function performSimulation() {
-                        totalPoints += 1;
-                    
-                        const x = Math.random() * canvas.width;
-                        const y = Math.random() * canvas.height;
-                    
-                        const distance = Math.sqrt(Math.pow(x - canvas.width / 2, 2) + Math.pow(y - canvas.height / 2, 2));
-                    
-                        if (distance <= canvas.width * 0.3) {
-                            insideCircleCount += 1;
-                            ctx.fillStyle = 'green';
-                        } else {
-                            ctx.fillStyle = 'red';
-                        }
-                    
-                        ctx.beginPath();
-                        ctx.arc(x, y, 2, 0, Math.PI * 2);
-                        ctx.fill();
-
-                        drawCircle();
-                    
-                        const piEstimation = (insideCircleCount / totalPoints) * 4;
-                        console.log('Current estimation of π:', piEstimation);
+                            totalPoints += 1;
+                
+                            const x = Math.random() * canvas.width;
+                            const y = Math.random() * canvas.height;
+                
+                            const distance = Math.sqrt(Math.pow(x - canvas.width / 2, 2) + Math.pow(y - canvas.height / 2, 2));
+                
+                            if (distance <= canvas.width * 0.3) {
+                                insideCircleCount += 1;
+                                ctx.fillStyle = 'green';
+                            } else {
+                                ctx.fillStyle = 'red';
+                            }
+                
+                            ctx.beginPath();
+                            ctx.arc(x, y, 2, 0, Math.PI * 2);
+                            ctx.fill();
+                
+                            drawCircle();
+                
+                            const piEstimation = (insideCircleCount / totalPoints) * 4;
+                            console.log('Current estimation of π:', piEstimation);
                         }
                     </script>
                 </div>
