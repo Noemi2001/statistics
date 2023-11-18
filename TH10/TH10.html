@@ -80,10 +80,12 @@
 
                 <div class="image-grid">
                     <figure>
-                        <img src="img1.png" alt="Descrizione dell'immagine">
+                        <img src="ABM.png" alt="Descrizione dell'immagine">
                     </figure>
                 </div>
-            
+
+                Brownian motion can be also considered as the generalization of a Randomwalk with jump according to the normal distribution. So, it is a scaling limit of the Randomwalk for n->infinity.
+                <br><br>
                 The differential form of the Wiener process is often written as:
 
                 \[ dW(t) = \mu \, dt + \sigma \, dZ(t) \]
@@ -121,7 +123,8 @@
                 </ol>
 
                 <p class="question">Simulations:</p>
-                <p>Click the canvas to perform a Monte Carlo simulation. Points inside the circle are shown in green, otherwise they are red.</p>
+                <p> Some simulation of different Brownian motion are implemented in the <a href=""> Homework7 </a><br>
+                    The following simulation is a Monte Carlo simulation: points inside the circle are shown in green, otherwise they are red.</p>
                 <div class="canvasContainer">
                     <canvas id="monteCarloCircleCanvas" width="500" height="500" style="background-color: rgb(238, 238, 238);"></canvas>
                     <script>
@@ -130,7 +133,6 @@
                         let insideCircleCount = 0;
                         let totalPoints = 0;
                 
-                        // Chiamiamo la funzione performSimulation ogni secondo
                         setInterval(performSimulation, 1000);
                 
                         function drawCircle() {
@@ -171,6 +173,7 @@
                         }
                     </script>
                 </div>
+                
             </p>
             <div class="section bibliography">
                 <p><strong>Bibliography:</strong></p>
