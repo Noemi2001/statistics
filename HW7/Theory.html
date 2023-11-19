@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> HW 7 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: Georgia;
+            margin: 60px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            margin-right: 10px;
+            text-align: justify;
+        }
+
+        .question {
+            text-decoration: underline;
+            
+        }
+
+        .answer {
+            margin-left: 15px;
+        }
+
+        .bibliography {
+            margin-top: 30px;
+        }
+
+        figure {
+            text-align: center; 
+            margin-right: 20px;
+        }
+
+        .formula{
+            text-align: center; 
+        }
+
+        img {
+            width: 400px; 
+            height: auto;
+        }
+
+        .image-grid {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+  </head>
+  <body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+    <div class="container" style="background-color: white;">
+    <br>
+        <h1>Homework 7</h1>
+        <div class="section">
+            <p class="answer"> 
+                Stochastic Differential Equations (SDE) are differential equations that involve both deterministic and random components. They are used to model the evolution of systems where randomness plays a significant role.<br>
+                These equations are foundational in finance, helping to model the random movements of financial instruments and understand the associated risks and uncertainties.
+                Some of the most important are:
+                <ol>
+                    <li>
+                        <strong>Arithmetic Brownian Motion:</strong><br>
+                        The equation for arithmetic Brownian motion is given by:<br>
+                            \[ dX_t = \mu \, dt + \sigma \, dW_t \]
+                        - \(X_t\) represents the value of the process at time \(t\).<br>
+                        - \(\mu\) is the drift term, representing the average rate of return per unit time.<br>
+                        - \(\sigma\) is the volatility, representing the standard deviation of the random fluctuations.<br>
+                        - \(dW_t\) is a Wiener process or Brownian motion, representing random, continuous, and unpredictable movements.<br>
+                        <figure>
+                            <img src="ABM.png" alt="Descrizione dell'immagine">
+                            <figcaption>N=70, M=200, P=0.5</figcaption>
+                        </figure>
+                    </li><br>
+                    <li>
+                        <strong>Geometric Brownian Motion</strong> (Black–Scholes Model):<br>
+                        The equation for geometric Brownian motion is:<br>
+                            \[ dS_t = \mu S_t \, dt + \sigma S_t \, dW_t \]
+                        - \(S_t\) is the stock price at time \(t\).<br>
+                        - \(\mu\) is the average rate of return.<br>
+                        - \(\sigma\) is the volatility.<br>
+                        - \(dW_t\) is a Wiener process.<br>
+                        <figure>
+                            <img src="img2.png" alt="Descrizione dell'immagine">
+                            <figcaption>N=70, M=200, P=0.5, sigma=0.5, mu=0.5</figcaption>
+                        </figure>
+                    </li><br>
+                    <li>
+                        <strong>Ornstein–Uhlenbeck Process</strong> (Mean-Reverting Process):<br>
+                        The equation is:<br>
+                            \[ dX_t = \theta (\mu - X_t) \, dt + \sigma \, dW_t \]
+                        - \(X_t\) is the value of the process at time \(t\).<br>
+                        - \(\theta\) is the speed of mean reversion.<br>
+                        - \(\mu\) is the mean to which the process reverts.<br>
+                        - \(\sigma\) is the volatility.<br>
+                        - \(dW_t\) is a Wiener process.<br>
+                        <figure>
+                            <img src="img3.png" alt="Descrizione dell'immagine">
+                            <figcaption>N=70, M=200, P=0.5, sigma=0.3, mu=10, theta=0,3</figcaption>
+                        </figure>
+                    </li><br>
+                    <li>
+                        <strong>Vasicek Model</strong>:<br>
+                        The equation is:<br>
+                            \[ dX_t = \kappa (\theta - X_t) \, dt + \sigma \, dW_t \]
+                        - \(X_t\) is the value of the process at time \(t\).<br>
+                        - \(\kappa\) is the speed of mean reversion.<br>
+                        - \(\theta\) is the mean.<br>
+                        - \(\sigma\) is the volatility.<br>
+                        - \(dW_t\) is a Wiener process.<br>
+                        <figure>
+                            <img src="img3.png" alt="Descrizione dell'immagine">
+                            <figcaption>N=70, M=200, P=0.5, sigma=0.3, theta=3, k=0.1</figcaption>
+                        </figure>
+                    </li><br>
+                    <li>
+                        <strong>Hull–White Model</strong>: <br>
+                        It extends the Vasicek model by making the mean reversion and volatility parameters time-dependent.
+                    </li><br>
+                    <li>
+                        <strong>Cox–Ingersoll–Ross (CIR) Model</strong>:<br>
+                        The equation is:<br>
+                            \[ dX_t = \kappa (\theta - X_t) \, dt + \sigma \sqrt{X_t} \, dW_t \]
+                        It is similar to the Vasicek model but includes a term proportional to the square root of the process.
+                    </li><br>
+                    <li>
+                        <strong>Black–Karasinski Model</strong>:<br>
+                        The Black–Karasinski model is an extension of the Cox–Ingersoll–Ross (CIR) model. It introduces stochastic volatility, allowing the volatility parameter to vary over time. The equation is given by:
+                        <br>
+                        \[ dX_t = (\theta(t) - a X_t) \, dt + \sigma(t) \sqrt{X_t} \, dW_t \]
+                        
+                        - \(X_t\) is the short rate at time \(t\).<br>
+                        - \(\theta(t)\) is the mean reversion function.<br>
+                        - \(a\) is the speed of mean reversion.<br>
+                        - \(\sigma(t)\) is the volatility function.<br>
+                        - \(dW_t\) is a Wiener process.<br>
+                    </li><br>
+                    <li>
+                        <strong>Heston Model</strong>:<br>
+                        The Heston model is used to describe the volatility of an asset and is defined by two stochastic differential equations, one for the asset price and one for its volatility.
+                        \[ dS_t = \mu S_t \, dt + \sqrt{V_t} S_t \, dW_t^1 \]
+                        \[ dV_t = \kappa (\theta - V_t) \, dt + \sigma \sqrt{V_t} \, dW_t^2 \]
+                        
+                        - \(S_t\) is the asset price at time \(t\).<br>
+                        - \(V_t\) is the instantaneous variance (volatility squared) at time \(t\).<br>
+                        - \(\mu\) is the average rate of return.<br>
+                        - \(\theta\) is the long-term average volatility.<br>
+                        - \(\kappa\) is the speed of mean reversion of volatility.<br>
+                        - \(\sigma\) is the volatility of volatility.<br>
+                        - \(dW_t^1\) and \(dW_t^2\) are two correlated Wiener processes.<br>
+                    </li><br>
+                    <li>
+                        <strong>Chen Model</strong>:<br>
+                        The Chen model is a more complex stochastic volatility model that considers both jumps and continuous-time processes in the volatility equation.
+                        \[ dX_t = (\mu - \lambda X_t) \, dt + \sigma \sqrt{X_t} \, dW_t + dJ_t \]
+                
+                        - \(X_t\) is the volatility of the asset at time \(t\).<br>
+                        - \(\mu\) is the average growth rate.<br>
+                        - \(\lambda\) is the mean-reverting speed.<br>
+                        - \(\sigma\) is the volatility of the process.<br>
+                        - \(dW_t\) is a Wiener process.<br>
+                        - \(dJ_t\) is a jump process.<br>
+                    </li>
+                </ol>
+            </p>
+        </div>
+        <br>
+        <div class="section bibliography">
+            <p><strong>Bibliography:</strong></p>
+            <ol>
+                <li>Lecture notes from the lesson of the statistics course</li>
+                <li><a href="https://en.wikipedia.org/wiki/Vasicek_model">Wikipedia: Vasicek</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Black%E2%80%93Karasinski_model">Wikipedia: Karasinski</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Heston_model">Wikipedia: Heston</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion">Wikipedia: Geometric Brownian</a></li>
+                <li><a href="https://quantpie.co.uk/SDEs/Arithemtic_Brownian_summary.php">Arithemtic Brownian</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Hull%E2%80%93White_model"> Wikipedia: White </a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Cox%E2%80%93Ingersoll%E2%80%93Ross_model"> Wikipedia: Ross</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process"> Wikipedia: Ornstein</a> </li>              
+            </ol>
+        </div>
+        <br>
+    </div>
+  </body>
+</html>
