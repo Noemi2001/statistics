@@ -225,7 +225,7 @@
                   <td style="vertical-align: middle;">practical</td>
                   <td style="vertical-align: middle;">
                     <button type="button" class="btn btn-success">
-                      <a href="https://noemi2001.github.io/statistics/HW7/HW7_JS.html" style="color: white;">Read</a>
+                      <a href="https://noemi2001.github.io/statistics/HW7/HW7_JS.html" style="color: white;">JS Version</a>
                     </button>
                   </td>
                 </tr>
@@ -234,7 +234,7 @@
                   <td>16 November 2023</td>
                   <td>theoretical </td>
                   <td><button type="button" class="btn btn-warning">
-                    <a href="https://noemi2001.github.io/statistics/HW6/HW6_Theory.html" style="color: white;">Read</a>
+                    <a href="https://noemi2001.github.io/statistics/HW7/HW7_Theory.html" style="color: white;">Read</a>
                   </button></td>
                 </tr>
                 <tr>
