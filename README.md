@@ -12,7 +12,7 @@
         <button type="button" class="btn btn-info btn-lg btn-block">
           <a href="https://noemi2001.github.io/statistics/final%20thesis/final%20thesis.html" style="color: white;">FINAL THESIS</a>
         </button>
-        <table class="table custom-table table-striped" style="self-align: center;">
+        <table class="table custom-table table-striped mx-auto" style="self-align: center;">
             <thead>
                 <tr>
                     <th>N° Homework</th>
