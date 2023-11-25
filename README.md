@@ -9,9 +9,9 @@
      <div class="container">
         <h5>This web page contains all the homeworks related to the Statistics course of Cybersecurity degree at Sapienza University.</h5>
         <br>
-        <button type="button" class="btn btn-info">
-          <a href="https://noemi2001.github.io/statistics/final_thesis/final_thesis.html" style="color: white;">FINAL THESIS</a>
-        </button></td>
+        <button type="button" class="btn btn-info btn-lg btn-block">
+          <a href="https://noemi2001.github.io/statistics/final%20thesis/final%20thesis.html" style="color: white;">FINAL THESIS</a>
+        </button>
         <table class="table custom-table table-striped" style="self-align: center;">
             <thead>
                 <tr>
