@@ -76,6 +76,10 @@
                     <li><h4>Continuous Distributions</h4>
                         Continuous distributions are associated with random variables that can take any value within a specified range. For example, length x = 2.567 mm and temperature t = 12.57 K.
                         Continuous distributions are typically described by probability distribution functions. The probability density function (or pdf) is a function that is used to calculate the probability that a continuous random variable will be less than or equal to the value it is being calculated at: Pr(a≤X≤b) or Pr(X≤b).
+                        \[ CDF(X) = \int_{-\infty}^{0} PDF(X) \, dx \]
+                        \[ CDF(b-a) = CDF(b) - CDF(a) = \int_{a}^{b} PDF(X) \, dx \]
+                        <br>
+                        Is important to remember that when we consider a continuous distribution usually, any individual outcome has probability zero and only events that include infinity outcomes, like intervals, can have probability bigger than 0. So, in this case, is bettere using intervals.
                         <br>
                         <br>
                         <p class="question">Examples</p>
