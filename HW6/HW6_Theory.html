@@ -91,7 +91,7 @@
                 Gambler A's wealth ranges from the total initial wealth of both players to zero. For i=1 to k - 1, we can plug in values to generate k - 1 equations. Algebraic manipulation condenses these equations into a standardized format, providing a fundamental relation between the winning probability, p, total initial wealth, k, and the probability of winning with one dollar, a₁. Solving for a₁ enables iterative determination of aᵢ for all possible i values.
                 <br><p class="formula"> \(1 - a_1 = \sum_{i=1}^{k-1} \left(\frac{1-p}{p}\right)^i\) </p>
                 Now, let's consider two scenarios: a fair game (p=1/2) and an unfair game (p≠1/2). In a fair game, the equation simplifies to 1 - a₁ = (k - 1)a₁, rearranging to a₁ = 1/k. This elegant result reveals that, in a fair game, the probability of A ending with k dollars before zero is i/k, where i is the initial wealth.
-                <br> <p class="formula"> \(a_i = \frac{k}{i}\) for \(i = 1, \ldots, k-1\)</p>
+                <br> <p class="formula"> \(a_i = \frac{i}{k}\) for \(i = 1, \ldots, k-1\)</p>
                 For an unfair game (p≠1/2), a general solution emerges, dependent on p and wealth parameters. The approach provides a systematic understanding of the Gambler’s Ruin Problem, unraveling the probabilities under different game conditions.
                 <br> <p class="formula"> \(a_i = \frac{(\frac{1-p}{p})^{k} -1 }{(\frac{1-p}{p})^{i}-1}\) for \(i = 1, \ldots, k-1\) </p>
             </p>
