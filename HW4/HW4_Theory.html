@@ -167,33 +167,35 @@
                 <br>
                 <div class="question">Proof</div>
                 <p class="answer">
-                    We start by defining the sample mean:
-                        \(\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n}X_i\)
+                   Proof of the Central Limit Theorem Using Characteristic Functions
 
-                    where \(X_1, X_2, \ldots, X_n\) are independent and identically distributed random variables with mean \(\mu\) and finite variance \(\sigma^2\).
-
-                    The CLT can be outlined as follows:
-
-                        <br>Standardize the sample mean:
-                        
-                        Define the standardized variable \(Z_n\) as: \(Z_n = \frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}}\)
-
-                        <br>Show that as \(n\) goes to infinity, the distribution of \(Z_n\) approaches a standard normal distribution (\(N(0,1)\)):
-
-                        \begin{equation}
-                            \lim_{n \to \infty} P(Z_n \leq z) = \Phi(z)
-                        \end{equation}
-
-                        where \(\Phi(z)\) is the cumulative distribution function of the standard normal distribution.
-
-                        <br> This demonstrates that the sample mean \(\bar{X}_n\) is approximately normally distributed with mean \(\mu\) and variance \(\sigma^2/n\):
-
-                        \begin{equation}
-                            \bar{X}_n \sim N(\mu, \sigma^2/n)
-                        \end{equation}
-
-                        The CLT implies that as the sample size increases, the distribution of \(\bar{X}_n\) becomes closer to a normal distribution. This is a crucial result in statistics, allowing us to use the normal distribution for various statistical inferences.
-
+                  The Central Limit Theorem (CLT) can be established through the utilization of characteristic functions, a method akin to the proof of the (weak) Law of Large Numbers.
+                  
+                  Let {X₁, ..., Xₙ, ...} be a sequence of independent and identically distributed random variables, each possessing a mean μ and finite variance σ². The sum X₁ + ⋯ + Xₙ has a mean nμ and variance nσ². Consider the random variable
+                  
+                  \[Zₙ = \frac{X₁ + ⋯ + Xₙ - nμ}{\sqrt{nσ²}} = \sum_{i=1}^{n} \frac{Xᵢ - μ}{\sqrt{nσ²}} = \sum_{i=1}^{n} \frac{1}{\sqrt{n}}Yᵢ,\]
+                  
+                  where we introduce the new random variables \(Yᵢ = \frac{Xᵢ - μ}{σ}\), each having a zero mean and unit variance (var(Y) = 1). The characteristic function of Zₙ is given by
+                  
+                  \[\varphi_{Zₙ}(t) = \varphi_{\sum_{i=1}^{n} \frac{1}{\sqrt{n}}Yᵢ}(t) = \varphi_{Y₁}\left(\frac{t}{\sqrt{n}}\right) \varphi_{Y₂}\left(\frac{t}{\sqrt{n}}\right) \cdots \varphi_{Yₙ}\left(\frac{t}{\sqrt{n}}\right) = \left[\varphi_{Y₁}\left(\frac{t}{\sqrt{n}}\right)\right]^n,\]
+                  
+                  where the last step exploits the identical distribution of all Yᵢ. The characteristic function of \(Y₁\) is, by Taylor's theorem,
+                  
+                  \[\varphi_{Y₁}\left(\frac{t}{\sqrt{n}}\right) = 1 - \frac{t²}{2n} + o\left(\frac{t²}{n}\right), \quad \left(\frac{t}{\sqrt{n}}\right) \to 0,\]
+                  
+                  where \(o(t²/n)\) is "little o notation" for a function of t that converges to zero more rapidly than \(t²/n\). Applying the limit of the exponential function (\[e^x = \lim_{n \to \infty} \left(1 + \frac{x}{n}\right)^n\]), the characteristic function of Zₙ becomes
+                  
+                  \[\varphi_{Zₙ}(t) = \left(1 - \frac{t²}{2n} + o\left(\frac{t²}{n}\right)\right)^n \rightarrow e^{-\frac{1}{2}t²}, \quad n \to \infty.\]
+                  
+                  All higher-order terms vanish as \(n \to \infty\). The right-hand side corresponds to the characteristic function of a standard normal distribution \(𝒩(0,1)\), implying, by Lévy's continuity theorem, that the distribution of Zₙ approaches \(𝒩(0,1)\) as \(n \to \infty\). Consequently, the sample average
+                  
+                  \[\bar{X}_n = \frac{X₁ + ⋯ + Xₙ}{n}\]
+                  
+                  satisfies
+                  
+                  \[\frac{\sqrt{n}}{\sigma}(\bar{X}_n - μ) = Zₙ\]
+                  
+                  which converges to the normal distribution \(𝒩(0,1)\). Thus, the Central Limit Theorem is established.
                 </p>
                 <div class="question">Example 1: </div>
                 As a result of the implementation of homework 3, we can observe:
